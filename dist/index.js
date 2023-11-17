@@ -142846,7 +142846,6 @@ async function run () {
     if(TYPE == types.BRANCH) {
         branchBundler(branch_name);
     } 
-    console.log(branch_to, branch_from);
 }
 
 run();
