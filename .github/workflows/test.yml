@@ -16,3 +16,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           TYPE: BRANCH
+          BRANCH_NAME: ${{ github.head_ref }}
+          

@@ -6,6 +6,11 @@ inputs:
   GITHUB_TOKEN:
     description: 'Github Token'
     required: true
+  TYPE:
+    description: 'Type of Function'
+    required: true
+  BRANCH_NAME:
+    description: 'Branch Name'
 
 runs:
   using: 'node16'
