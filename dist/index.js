@@ -142719,7 +142719,7 @@ function create() {
 artifactClient$2.create = create;
 
 const folder_dir = "bundle__analyzer__";
-const artifactClient = artifact.create();
+const artifactClient = artifactClient$2.create();
 
 const setup = async () => {
   await $`npx yarn`;
