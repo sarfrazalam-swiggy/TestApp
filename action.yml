@@ -13,5 +13,5 @@ inputs:
     description: 'Branch Name'
 
 runs:
-  using: 'composite'
+  using: 'node16'
   main: 'dist/index.js'
