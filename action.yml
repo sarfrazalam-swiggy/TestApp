@@ -13,5 +13,5 @@ inputs:
     description: 'Branch Name'
 
 runs:
-  using: 'docker'
+  using: 'composite'
   main: 'dist/index.js'
