@@ -1,0 +1,12 @@
+name: 'React Native Bundle Analyzer'
+description: 'Compare bundles between pull requests'
+author: 'sarfraz'
+
+inputs: 
+  GITHUB_TOKEN:
+    description: 'Github Token'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
