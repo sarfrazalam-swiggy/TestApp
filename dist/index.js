@@ -142930,20 +142930,18 @@ const analyzeBundler = async ({
   
 
   const branch_From_map = {
-    bundle: path$7.resolve(from,`${branch_From}.bundle`),
-    source_map: path$7.resolve(from,`${branch_From}.map`),
-    filename: path$7.resolve(from,`${branch_From}.html`)
+    bundle: path$7.resolve(from, folder_dir,`${branch_From}.bundle`),
+    source_map: path$7.resolve(from, folder_dir,`${branch_From}.map`),
+    filename: path$7.resolve(from, folder_dir,`${branch_From}.html`)
   };
 
   const branch_To_map = {
-    bundle: path$7.resolve( to,`${branch_to}.bundle`),
-    source_map: path$7.resolve( to,`${branch_to}.map`),
-    filename: path$7.resolve(to,`${branch_to}.html`)
+    bundle: path$7.resolve( to, folder_dir,`${branch_to}.bundle`),
+    source_map: path$7.resolve( to, folder_dir,`${branch_to}.map`),
+    filename: path$7.resolve(to, folder_dir,`${branch_to}.html`)
   };
 
-  const { stdout } = await $`ls`;
-
-
+  const { stdout } = await $`cd ${to} && ls`;
   console.log(stdout);
 
   treeMap[branch_From] = await generateTreeMap(
