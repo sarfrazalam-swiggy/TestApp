@@ -1355,7 +1355,7 @@ var timers$1 = {
   }
 };
 
-var main$2 = {exports: {}};
+var main$1 = {exports: {}};
 
 var sbmh;
 var hasRequiredSbmh;
@@ -2887,7 +2887,7 @@ function requireUrlencoded () {
 var hasRequiredMain;
 
 function requireMain () {
-	if (hasRequiredMain) return main$2.exports;
+	if (hasRequiredMain) return main$1.exports;
 	hasRequiredMain = 1;
 
 	const WritableStream = require$$0$6.Writable;
@@ -2968,12 +2968,12 @@ function requireMain () {
 	  this._parser.write(chunk, cb);
 	};
 
-	main$2.exports = Busboy;
-	main$2.exports.default = Busboy;
-	main$2.exports.Busboy = Busboy;
+	main$1.exports = Busboy;
+	main$1.exports.default = Busboy;
+	main$1.exports.Busboy = Busboy;
 
-	main$2.exports.Dicer = Dicer;
-	return main$2.exports;
+	main$1.exports.Dicer = Dicer;
+	return main$1.exports;
 }
 
 var constants$4;
@@ -137846,7 +137846,7 @@ var license = "Apache-2.0";
 var bin = {
 	ejs: "./bin/cli.js"
 };
-var main$1 = "./lib/ejs.js";
+var main = "./lib/ejs.js";
 var jsdelivr = "ejs.min.js";
 var unpkg = "ejs.min.js";
 var repository = {
@@ -137881,7 +137881,7 @@ var require$$3 = {
 	author: author,
 	license: license,
 	bin: bin,
-	main: main$1,
+	main: main,
 	jsdelivr: jsdelivr,
 	unpkg: unpkg,
 	repository: repository,
@@ -142719,20 +142719,10 @@ function create() {
 artifactClient$2.create = create;
 
 const folder_dir = "bundle__analyzer__";
-let branch_to = "release_candidate_v6.4";
-let branch_From = "decouple_mock_api";
-
-let treeMap = {};
+const artifactClient = artifact.create();
 
 const setup = async () => {
   await $`npx yarn`;
-};
-
-const checkoutBranch = async (branch_name) => {
-  await $`git reset --hard`;
-  await $`git fetch origin`;
-  await $`git checkout ${branch_name}`;
-  await $`git pull origin ${branch_name} --strategy-option theirs`;
 };
 
 const format = (command, ...args) => {
@@ -142803,97 +142793,7 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 })
 };
 
-const generateTreeMap = async (bundle, sourcemap, filename) => {
-  const res = await lib.explore(
-    {
-      code: bundle,
-      map: sourcemap,
-    },
-    {
-      onlyMapped: false,
-      output: {
-        format: "html",
-        filename
-      },
-    }
-  );
-
-  return res;
-};
-
-class TreeAnalyzer {
-    bundles = {
-        [branch_From] : treeMap[branch_From].bundles[0],
-        [branch_to] : treeMap[branch_to].bundles[0]
-    };
-    
-
-    TreeAnalyzer() {
-        this.bundles[branch_From] = treeMap[branch_From].bundles[0];
-        this.bundles[branch_to] = treeMap[branch_to].bundles[0];
-    }
-
-    createTree(files) {
-        if(!files) {
-            console.log("INVALID FILES TO CREATE TREE");
-            return;
-        }
-        const map = new Map();
-        Object.keys(files).map((f) => {
-            map.set(f, parseInt(files[f].size));
-        });
-
-        return map
-    }
-
-    findFileDiff(files, files_map = new Map()) {
-
-        const diff = {};
-
-        Object.keys(files).map((filePath) => {
-            if(!files_map.has(filePath)) {
-                diff[filePath] = -parseInt(files[filePath].size);
-            }else {
-                const size = parseInt(files[filePath].size);
-                const prev_size = files_map.get(filePath);
-
-                if(prev_size - size != 0) {
-                    diff[filePath] = prev_size - size;
-                }
-            }   
-            files_map.delete(filePath);
-        });
-
-        files_map.forEach((value, key) => {
-            diff[key] = value;
-        });
-
-        return diff;
-    }
-
-    analyze() {
-        const branchToMap = this.createTree(this.bundles[branch_to].files);
-
-        const totalBytesDifference = parseInt(this.bundles[branch_to].totalBytes) - parseInt(this.bundles[branch_From].totalBytes);
-        const mappedBytesDifference = this.bundles[branch_to].mappedBytes - this.bundles[branch_From].mappedBytes;
-        const unmappedBytesDifference = this.bundles[branch_to].unmappedBytes - this.bundles[branch_From].unmappedBytes;
-
-        const filesDiff = this.findFileDiff(this.bundles[branch_From].files, branchToMap);
-
-        return {
-            totalBytes : totalBytesDifference,
-            mappedBytes : mappedBytesDifference,
-            unmappedBytes : unmappedBytesDifference,
-            files : filesDiff
-        }
-    }
-
-
-}
-
-const main = async (to, from) => {
-  branch_to = to;
-  branch_From = from;
+const branchBundler = async (branch_name) => {
   if (require$$0.existsSync(path$7.resolve(folder_dir)))
     require$$0.rmSync(path$7.resolve(folder_dir), {
       recursive: true,
@@ -142901,121 +142801,51 @@ const main = async (to, from) => {
 
   require$$0.mkdirSync(path$7.resolve(folder_dir));
 
-  console.log(`Directory ${path$7.resolve(folder_dir)} created.`);
-
-  const branch_From_map = {
-    bundle: path$7.resolve(folder_dir, `${branch_From}.bundle`),
-    source_map: path$7.resolve(folder_dir, `${branch_From}.map`),
-    filename: path$7.resolve(folder_dir, `${branch_From}.html`)
-  };
-
-  const branch_To_map = {
-    bundle: path$7.resolve(folder_dir, `${branch_to}.bundle`),
-    source_map: path$7.resolve(folder_dir, `${branch_to}.map`),
-    filename: path$7.resolve(folder_dir, `${branch_to}.html`)
-  };
-
-  console.log(branch_From_map, branch_To_map);
-
-  console.log("Checking out branch");
-
-  await checkoutBranch(branch_From);
-
   console.log("Setting up repository");
-
+  
   await setup();
 
-  console.log("Generating bundle and source maps");
+
+  const fileDetails = {
+    bundle: path$7.resolve(folder_dir, `app.bundle`),
+    source_map: path$7.resolve(folder_dir, `app.map`),
+    filename: path$7.resolve(folder_dir, `app.html`)
+  };
+
+
 
   await generateBundleAndSourceMap(
-    branch_From_map.bundle,
-    branch_From_map.source_map
+    fileDetails.bundle,
+    fileDetails.source_map
   );
 
-  treeMap[branch_From] = await generateTreeMap(
-    branch_From_map.bundle,
-    branch_From_map.source_map,
-    branch_From_map.filename
-  );
+  const files = [
+    fileDetails.bundle,
+    fileDetails.source_map
+  ];
 
-  console.log("Checking out second branch");
-
-  await checkoutBranch(branch_to);
-
-  console.log("Setting up branch");
-
-  await setup();
-
-  console.log("Generating Bundle and Source Map");
-
-  await generateBundleAndSourceMap(branch_To_map.bundle, branch_To_map.source_map);
+  const rootDirectory = '.';
+  const options = {
+      continueOnError: false
+  };
 
 
-  treeMap[branch_to] = await generateTreeMap(
-    branch_To_map.bundle,
-    branch_To_map.source_map,
-    branch_To_map.filename
-  );
+  await artifactClient.uploadArtifact(branch_name, files, rootDirectory, options);
+};
 
-  console.log("Saving the results");
-
-  require$$0.writeFileSync(
-    path$7.resolve(folder_dir, "result.json"),
-    JSON.stringify(treeMap)
-  );
-
-    const json = JSON.parse(require$$0.readFileSync('temp.json','utf8'));
-    treeMap = json;
-
-    console.log(Object.keys(treeMap));
-
-    console.log(branch_to, branch_From);
-
-    const treeAnalyzer = new TreeAnalyzer();
-
-    const res = treeAnalyzer.analyze();
-
-    console.log(res);
-
-    require$$0.writeFileSync(
-        path$7.resolve('res.json'),
-        JSON.stringify(res)
-    );
-
-    const files = [
-      path$7.resolve('res.json')
-    ];
-    const rootDirectory = '.'; // Also possible to use __dirname
-    const options = {
-        continueOnError: false
-    };
-  
-    await artifactClient.uploadArtifact('files', files, rootDirectory, options);
+const types = {
+    "BRANCH" : "BRANCH",
 
 };
 
 async function run () {
-    const GITHUB_TOKEN = core$5.getInput('GITHUB_TOKEN');
+    core$5.getInput('GITHUB_TOKEN');
+    const TYPE = core$5.getInput('TYPE');
+    const branch_name = core$5.getInput('BRANCH_NAME');
 
-    const octokit = github.getOctokit(GITHUB_TOKEN);
-
-    const { context } = github;
-
-    const { pull_request, repository } = context.payload;
-
-    // console.log(repository)
-    const  { data } = await octokit.rest.pulls.get({
-        pull_number: pull_request.number,
-        repo: repository.name,
-        owner: repository.owner.login,
-
-    });
-
-    const branch_to = data.base.ref;
-    const branch_from = data.head.ref;
-
-
-    main(branch_to, branch_from);
+    if(TYPE == types.BRANCH) {
+        branchBundler(branch_name);
+    } 
     console.log(branch_to, branch_from);
 }
 
