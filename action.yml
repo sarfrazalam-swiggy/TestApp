@@ -13,4 +13,5 @@ inputs:
     description: 'Branch Name'
 
 runs:
+  using: 'docker'
   main: 'dist/index.js'
