@@ -13,5 +13,5 @@ inputs:
     description: 'Branch Name'
 
 runs:
-  using: 'node18'
+  using: 'node20'
   main: 'dist/index.js'
