@@ -141059,7 +141059,11 @@ function create() {
 artifactClient$2.create = create;
 
 const folder_dir = "bundle__analyzer__";
+let branch_to = "release_candidate_v6.4";
+let branch_From = "decouple_mock_api";
 const artifactClient = artifactClient$2.create();
+
+let treeMap = {};
 
 const format = (command, ...args) => {
   const regex = /\{[0-9]+\}/g;
@@ -141129,6 +141133,94 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 })
 };
 
+const generateTreeMap = async (bundle, sourcemap, filename) => {
+  const res = await lib.explore(
+    {
+      code: bundle,
+      map: sourcemap,
+    },
+    {
+      onlyMapped: false,
+      output: {
+        format: "html",
+        filename
+      },
+    }
+  );
+
+  return res;
+};
+
+class TreeAnalyzer {
+    bundles = {
+        [branch_From] : treeMap[branch_From].bundles[0],
+        [branch_to] : treeMap[branch_to].bundles[0]
+    };
+    
+
+    TreeAnalyzer() {
+        this.bundles[branch_From] = treeMap[branch_From].bundles[0];
+        this.bundles[branch_to] = treeMap[branch_to].bundles[0];
+    }
+
+    createTree(files) {
+        if(!files) {
+            console.log("INVALID FILES TO CREATE TREE");
+            return;
+        }
+        const map = new Map();
+        Object.keys(files).map((f) => {
+            map.set(f, parseInt(files[f].size));
+        });
+
+        return map
+    }
+
+    findFileDiff(files, files_map = new Map()) {
+
+        const diff = {};
+
+        Object.keys(files).map((filePath) => {
+            if(!files_map.has(filePath)) {
+                diff[filePath] = -parseInt(files[filePath].size);
+            }else {
+                const size = parseInt(files[filePath].size);
+                const prev_size = files_map.get(filePath);
+
+                if(prev_size - size != 0) {
+                    diff[filePath] = prev_size - size;
+                }
+            }   
+            files_map.delete(filePath);
+        });
+
+        files_map.forEach((value, key) => {
+            diff[key] = value;
+        });
+
+        return diff;
+    }
+
+    analyze() {
+        const branchToMap = this.createTree(this.bundles[branch_to].files);
+
+        const totalBytesDifference = parseInt(this.bundles[branch_to].totalBytes) - parseInt(this.bundles[branch_From].totalBytes);
+        const mappedBytesDifference = this.bundles[branch_to].mappedBytes - this.bundles[branch_From].mappedBytes;
+        const unmappedBytesDifference = this.bundles[branch_to].unmappedBytes - this.bundles[branch_From].unmappedBytes;
+
+        const filesDiff = this.findFileDiff(this.bundles[branch_From].files, branchToMap);
+
+        return {
+            totalBytes : totalBytesDifference,
+            mappedBytes : mappedBytesDifference,
+            unmappedBytes : unmappedBytesDifference,
+            files : filesDiff
+        }
+    }
+
+
+}
+
 const branchBundler = async (branch_name) => {
   if (require$$0.existsSync(path$7.resolve(folder_dir)))
     require$$0.rmSync(path$7.resolve(folder_dir), {
@@ -141138,9 +141230,9 @@ const branchBundler = async (branch_name) => {
   require$$0.mkdirSync(path$7.resolve(folder_dir));
 
   const fileDetails = {
-    bundle: path$7.resolve(folder_dir, `app.bundle`),
-    source_map: path$7.resolve(folder_dir, `app.map`),
-    filename: path$7.resolve(folder_dir, `app.html`)
+    bundle: path$7.resolve(folder_dir, `${branch_name}.bundle`),
+    source_map: path$7.resolve(folder_dir, `${branch_name}.map`),
+    filename: path$7.resolve(folder_dir, `${branch_name}.html`)
   };
 
 
@@ -141164,19 +141256,85 @@ const branchBundler = async (branch_name) => {
   await artifactClient.uploadArtifact(branch_name, files, rootDirectory, options);
 };
 
+const analyzeBundler = async ({
+  to,
+  from
+}) => {
+  branch_to = to;
+  branch_From = from;
+
+  const p = path$7.resolve();
+
+  await artifactClient.downloadAllArtifacts(p);
+
+  const branch_From_map = {
+    bundle: path$7.resolve(`${branch_From}.bundle`),
+    source_map: path$7.resolve(`${branch_From}.map`),
+    filename: path$7.resolve(`${branch_From}.html`)
+  };
+
+  const branch_To_map = {
+    bundle: path$7.resolve( `${branch_to}.bundle`),
+    source_map: path$7.resolve( `${branch_to}.map`),
+    filename: path$7.resolve(`${branch_to}.html`)
+  };
+
+
+  treeMap[branch_From] = await generateTreeMap(
+    branch_From_map.bundle,
+    branch_From_map.source_map,
+    branch_From_map.filename
+  );
+
+  treeMap[branch_to] = await generateTreeMap(
+    branch_To_map.bundle,
+    branch_To_map.source_map,
+    branch_To_map.filename
+  );
+
+  const treeAnalyzer = new TreeAnalyzer();
+
+  const res = treeAnalyzer.analyze();
+
+  console.log(res);
+
+  require$$0.writeFileSync(
+      path$7.resolve('res.json'),
+      JSON.stringify(res)
+  );
+
+  const files = [
+    path$7.resolve('res.json')
+  ];
+  const rootDirectory = '.'; // Also possible to use __dirname
+  const options = {
+      continueOnError: false
+  };
+
+  await artifactClient.uploadArtifact('files', files, rootDirectory, options);
+
+};
+
 const types = {
     "BRANCH" : "BRANCH",
-
+    "ANALYZE": "ANALYZE"
 };
 
 async function run () {
     core$5.getInput('GITHUB_TOKEN');
     const TYPE = core$5.getInput('TYPE');
     const branch_name = core$5.getInput('BRANCH_NAME');
-
+    
     if(TYPE == types.BRANCH) {
         branchBundler(branch_name);
-    } 
+    } else if(TYPE == types.ANALYZE) {
+        const branch_to = core$5.getInput('BRANCH_TO');
+
+        analyzeBundler({
+            to: branch_to,
+            from: branch_name
+        });
+    }
 }
 
 run();

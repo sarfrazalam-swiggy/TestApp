@@ -8,17 +8,33 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: npm install -g yarn
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - run: yarn
       - uses: ./
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           TYPE: BRANCH
           BRANCH_NAME: ${{ github.head_ref }}
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+      - run: yarn
+      - uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          TYPE: BRANCH
+          BRANCH_NAME: ${{ github.base_ref }}
+      - uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          TYPE: ANALYZE
+          BRANCH_NAME: ${{ github.head_ref }}
+          BRANCH_TO: ${{ github.base_ref }}

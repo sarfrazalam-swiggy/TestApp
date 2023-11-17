@@ -11,6 +11,8 @@ inputs:
     required: true
   BRANCH_NAME:
     description: 'Branch Name'
+  BRANCH_TO: 
+    description: 'Branch To'
 
 runs:
   using: 'node16'
