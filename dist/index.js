@@ -119902,7 +119902,7 @@ const commentDetails = async () => {
       return null;
 
     files[item];
-    const updatedStr = '\`';
+    let updatedStr = '\`';
     
     if(files[item] < 0)
       updatedStr += '+';
