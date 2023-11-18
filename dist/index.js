@@ -119916,11 +119916,13 @@ const branchBundler = async (branch_name) => {
     fileDetails.source_map
   );
 
-  await generateTreeMap(
+  const res = await generateTreeMap(
     fileDetails.bundle,
     fileDetails.source_map,
     fileDetails.filename
   );
+
+  console.log(res);
 
   const files = [
     fileDetails.bundle,
