@@ -119781,7 +119781,7 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
 
   try {
   console.log("Generating tree map ", bundle, sourcemap);
-  
+
   await $`npx source-map-explorer ${bundle} ${sourcemap} --json ${filename} --no-border-checks`;
 
   const res = JSON.parse(fs$7.readFileSync(filename, 'utf8'));
@@ -119796,14 +119796,14 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
 
 class TreeAnalyzer {
     bundles = {
-        [branch_From] : treeMap[branch_From].bundles[0],
-        [branch_to] : treeMap[branch_to].bundles[0]
+        [branch_From] : treeMap[branch_From].results[0],
+        [branch_to] : treeMap[branch_to].results[0]
     };
     
 
     TreeAnalyzer() {
-        this.bundles[branch_From] = treeMap[branch_From].bundles[0];
-        this.bundles[branch_to] = treeMap[branch_to].bundles[0];
+        this.bundles[branch_From] = treeMap[branch_From].results[0];
+        this.bundles[branch_to] = treeMap[branch_to].results[0];
     }
 
     createTree(files) {
