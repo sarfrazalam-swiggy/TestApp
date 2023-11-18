@@ -119885,7 +119885,7 @@ function getFiles(dir, files = []) {
 const commentDetails = async () => {
   const GITHUB_TOKEN = core$5.getInput("GITHUB_TOKEN");
 
-  const result = JSON.parse(require$$0.readFileSync(path$5.resolve('res.json'))).results[0];
+  const result = JSON.parse(require$$0.readFileSync(path$5.resolve('res.json')));
 
   const files = result.files;
 
