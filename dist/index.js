@@ -119781,20 +119781,7 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
 
   try {
   console.log("Generating tree map ", bundle, sourcemap);
-  // const res = await explore(
-  //   {
-  //     code: bundle,
-  //     map: sourcemap,
-  //   },
-  //   {
-  //     onlyMapped: false,
-  //     output: {
-  //       format: "html",
-  //     },
-  //   }
-  // );
-
-
+  
   await $`npx source-map-explorer ${bundle} ${sourcemap} --json ${filename} --no-border-checks`;
 
   const res = JSON.parse(fs$7.readFileSync(filename, 'utf8'));
@@ -119929,6 +119916,9 @@ const branchBundler = async (branch_name) => {
     fileDetails.source_map,
     fileDetails.filename
   ];
+
+  console.log("Uploading artificats");
+  console.log(files);
 
   const rootDirectory = '.';
   const options = {
