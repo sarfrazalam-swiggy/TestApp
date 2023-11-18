@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
       - run: npm install -g yarn
       - run: npm install -g source-map-explorer
       - uses: actions/checkout@v2
