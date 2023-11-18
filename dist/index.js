@@ -119754,7 +119754,7 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
   const reactNativeCli = getReactNativeBin();
 
   const command = format(
-    `${reactNativeCli} bundle --entry-file={0}  --bundle-output={1} --sourcemap-output={2}`,
+    `${reactNativeCli} bundle --entry-file={0}  --bundle-output={1} --sourcemap-output={2} --dev=false --minify=false --platform=ios`,
     getEntryPoint(),
     bundle_output,
     source_map
