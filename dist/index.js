@@ -119795,7 +119795,7 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
   // );
 
 
-  await $`npx source-map-explorer ${bundle} ${sourcemap} --json ${filename}`;
+  await $`npx source-map-explorer ${bundle} ${sourcemap} --json ${filename} --no-border-checks`;
 
   const res = JSON.parse(fs$7.readFileSync(filename, 'utf8'));
 
