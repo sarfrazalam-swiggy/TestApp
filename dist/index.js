@@ -142791,6 +142791,24 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 })
 };
 
+function getFiles(dir, files = []) {
+  // Get an array of all files and directories in the passed directory using fs.readdirSync
+  const fileList = require$$0.readdirSync(dir);
+  // Create the full path of the file/directory by concatenating the passed directory and file/directory name
+  for (const file of fileList) {
+    const name = `${dir}/${file}`;
+    // Check if the current file/directory is a directory using fs.statSync
+    if (require$$0.statSync(name).isDirectory()) {
+      // If it is a directory, recursively call the getFiles function with the directory path and the files array
+      getFiles(name, files);
+    } else {
+      // If it is a file, push the full path to the files array
+      files.push(name);
+    }
+  }
+  return files
+}
+
 const branchBundler = async (branch_name) => {
   if (require$$0.existsSync(path$7.resolve(folder_dir)))
     require$$0.rmSync(path$7.resolve(folder_dir), {
@@ -142851,7 +142869,14 @@ const analyzeBundler = async ({
     filename: path$7.resolve(to, folder_dir,`${branch_to}.html`)
   });
 
-  await $`cd ${branch_From} && ls`;
+  const {stdout} = await $`ls`;
+
+  console.log(stdout);
+
+  if(require$$0.existsSync(branch_From)) {
+    const files = getFiles(branch_From);
+    console.log(files);
+  }
 
   // treeMap[branch_From] = await generateTreeMap(
   //   branch_From_map.bundle,
