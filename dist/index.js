@@ -119889,7 +119889,7 @@ const commentDetails = async () => {
 
   const files = result.files;
 
-  const updatedTotalBytes = 0;
+  let updatedTotalBytes = 0;
 
   let body = [
     'Here are the changes of the updated files'
