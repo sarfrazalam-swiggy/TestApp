@@ -119930,9 +119930,8 @@ const commentDetails = async () => {
   const { repository, pull_request } = context.payload;
 
   await octokit.rest.issues.createComment({
-    owner: repository.owner.login,
-    pull_number: pull_request.number,
-    repo: repository.name,
+    ...context.repo,
+    issue_number: pull_request.number,
     body: bodyStr
   });
 
