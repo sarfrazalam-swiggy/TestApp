@@ -142945,25 +142945,29 @@ const analyzeBundler = async ({
 };
 
 const types = {
-    "BRANCH" : "BRANCH",
-    "ANALYZE": "ANALYZE"
+  BRANCH: "BRANCH",
+  ANALYZE: "ANALYZE",
 };
 
-async function run () {
-    core$5.getInput('GITHUB_TOKEN');
-    const TYPE = core$5.getInput('TYPE');
-    const branch_name = core$5.getInput('BRANCH_NAME');
-    
-    if(TYPE == types.BRANCH) {
-        branchBundler(branch_name);
-    } else if(TYPE == types.ANALYZE) {
-        const branch_to = core$5.getInput('BRANCH_TO');
+async function run() {
+  core$5.getInput("GITHUB_TOKEN");
+  const TYPE = core$5.getInput("TYPE");
+  const branch_name = core$5.getInput("BRANCH_NAME");
 
-        analyzeBundler({
-            to: branch_to,
-            from: branch_name
-        });
+  try {
+    if (TYPE == types.BRANCH) {
+      branchBundler(branch_name);
+    } else if (TYPE == types.ANALYZE) {
+      const branch_to = core$5.getInput("BRANCH_TO");
+
+      analyzeBundler({
+        to: branch_to,
+        from: branch_name,
+      });
     }
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 run();
