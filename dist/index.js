@@ -142723,6 +142723,8 @@ let branch_to = "release_candidate_v6.4";
 let branch_From = "decouple_mock_api";
 const artifactClient = artifactClient$2.create();
 
+let treeMap = {};
+
 const format = (command, ...args) => {
   const regex = /\{[0-9]+\}/g;
 
@@ -142791,6 +142793,24 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 })
 };
 
+const generateTreeMap = async (bundle, sourcemap, filename) => {
+  console.log("Generating tree map ", bundle, sourcemap);
+  const res = await lib.explore(
+    {
+      code: bundle,
+      map: sourcemap,
+    },
+    {
+      onlyMapped: false,
+      output: {
+        format: "html",
+      },
+    }
+  );
+
+  return res;
+};
+
 function getFiles(dir, files = []) {
   // Get an array of all files and directories in the passed directory using fs.readdirSync
   const fileList = require$$0.readdirSync(dir);
@@ -142857,17 +142877,17 @@ const analyzeBundler = async ({
 
   
 
-  ({
+  const branch_From_map = {
     bundle: path$7.resolve(from, folder_dir,`${branch_From}.bundle`),
     source_map: path$7.resolve(from, folder_dir,`${branch_From}.map`),
     filename: path$7.resolve(from, folder_dir,`${branch_From}.html`)
-  });
+  };
 
-  ({
+  const branch_To_map = {
     bundle: path$7.resolve( to, folder_dir,`${branch_to}.bundle`),
     source_map: path$7.resolve( to, folder_dir,`${branch_to}.map`),
     filename: path$7.resolve(to, folder_dir,`${branch_to}.html`)
-  });
+  };
 
   const {stdout} = await $`ls`;
 
@@ -142878,11 +142898,11 @@ const analyzeBundler = async ({
     console.log(files);
   }
 
-  // treeMap[branch_From] = await generateTreeMap(
-  //   branch_From_map.bundle,
-  //   branch_From_map.source_map,
-  //   branch_From_map.filename
-  // );
+  console.log(branch_From_map, branch_To_map);
+
+  treeMap[branch_From] = await generateTreeMap(
+    branch_From_map.bundle,
+    branch_From_map.source_map);
 
   // treeMap[branch_to] = await generateTreeMap(
   //   branch_To_map.bundle,
