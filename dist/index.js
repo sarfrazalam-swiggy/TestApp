@@ -1,40 +1,42 @@
-import require$$0 from 'fs';
-import require$$0$1 from 'os';
-import require$$2$2 from 'http';
-import require$$3$2 from 'https';
-import require$$0$4 from 'net';
-import require$$1$1 from 'tls';
-import require$$4$1 from 'events';
-import require$$0$3 from 'assert';
-import require$$0$2 from 'util';
-import Stream$1 from 'stream';
-import require$$7 from 'buffer';
-import require$$8 from 'querystring';
-import require$$13 from 'stream/web';
-import require$$0$6 from 'node:stream';
-import require$$1$2, { debuglog } from 'node:util';
-import require$$0$5 from 'node:events';
-import require$$0$7 from 'worker_threads';
-import require$$2$3 from 'perf_hooks';
-import require$$5 from 'util/types';
-import require$$4$2 from 'async_hooks';
-import require$$1$3 from 'console';
-import Url from 'url';
-import zlib$2 from 'zlib';
-import require$$6 from 'string_decoder';
-import require$$0$8 from 'diagnostics_channel';
-import require$$0$9 from 'punycode';
-import path$7 from 'path';
-import require$$0$a, { exec } from 'child_process';
-import { Buffer as Buffer$1 } from 'node:buffer';
-import path$8 from 'node:path';
-import childProcess, { ChildProcess } from 'node:child_process';
-import process$2 from 'node:process';
-import url from 'node:url';
-import os$2, { constants as constants$5 } from 'node:os';
-import { createWriteStream, readFileSync, createReadStream } from 'node:fs';
-import { setTimeout as setTimeout$1 } from 'node:timers/promises';
-import require$$3$3 from 'crypto';
+'use strict';
+
+var require$$0 = require('fs');
+var require$$0$1 = require('os');
+var require$$2$2 = require('http');
+var require$$3$2 = require('https');
+var require$$0$4 = require('net');
+var require$$1$1 = require('tls');
+var require$$4$1 = require('events');
+var require$$0$3 = require('assert');
+var require$$0$2 = require('util');
+var Stream$1 = require('stream');
+var require$$7 = require('buffer');
+var require$$8 = require('querystring');
+var require$$13 = require('stream/web');
+var require$$0$6 = require('node:stream');
+var require$$1$2 = require('node:util');
+var require$$0$5 = require('node:events');
+var require$$0$7 = require('worker_threads');
+var require$$2$3 = require('perf_hooks');
+var require$$5 = require('util/types');
+var require$$4$2 = require('async_hooks');
+var require$$1$3 = require('console');
+var Url = require('url');
+var zlib$2 = require('zlib');
+var require$$6 = require('string_decoder');
+var require$$0$8 = require('diagnostics_channel');
+var require$$0$9 = require('punycode');
+var path$7 = require('path');
+var require$$0$a = require('child_process');
+var node_buffer = require('node:buffer');
+var path$8 = require('node:path');
+var childProcess = require('node:child_process');
+var process$2 = require('node:process');
+var url = require('node:url');
+var os$2 = require('node:os');
+var node_fs = require('node:fs');
+var promises = require('node:timers/promises');
+var require$$3$3 = require('crypto');
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -111535,7 +111537,7 @@ standard
 })=>{
 const{
 signals:{[name]:constantSignal}
-}=constants$5;
+}=os$2.constants;
 const supported=constantSignal!==undefined;
 const number=supported?constantSignal:defaultNumber;
 return {name,number,description,supported,action,forced,standard}
@@ -111594,7 +111596,7 @@ standard
 
 
 const findSignalByNumber=(number,signals)=>{
-const signal=signals.find(({name})=>constants$5.signals[name]===number);
+const signal=signals.find(({name})=>os$2.constants.signals[name]===number);
 
 if(signal!==undefined){
 return signal
@@ -112146,11 +112148,11 @@ function isWritableStream(stream) {
 		&& typeof stream._writableState === 'object';
 }
 
-const isExecaChildProcess = target => target instanceof ChildProcess && typeof target.then === 'function';
+const isExecaChildProcess = target => target instanceof childProcess.ChildProcess && typeof target.then === 'function';
 
 const pipeToTarget = (spawned, streamName, target) => {
 	if (typeof target === 'string') {
-		spawned[streamName].pipe(createWriteStream(target));
+		spawned[streamName].pipe(node_fs.createWriteStream(target));
 		return spawned;
 	}
 
@@ -112488,7 +112490,7 @@ const getInputSync = ({input, inputFile}) => {
 	}
 
 	validateInputOptions(input);
-	return readFileSync(inputFile);
+	return node_fs.readFileSync(inputFile);
 };
 
 // `input` and `inputFile` option in sync mode
@@ -112508,7 +112510,7 @@ const getInput = ({input, inputFile}) => {
 	}
 
 	validateInputOptions(input);
-	return createReadStream(inputFile);
+	return node_fs.createReadStream(inputFile);
 };
 
 // `input` and `inputFile` option in async mode
@@ -112553,7 +112555,7 @@ const getBufferedData = async (stream, streamPromise) => {
 	}
 
 	// Wait for the `all` stream to receive the last chunk before destroying the stream
-	await setTimeout$1(0);
+	await promises.setTimeout(0);
 
 	stream.destroy();
 
@@ -112679,7 +112681,7 @@ const parseExpression = expression => {
 	if (
 		typeOfExpression === 'object'
 		&& expression !== null
-		&& !(expression instanceof ChildProcess)
+		&& !(expression instanceof childProcess.ChildProcess)
 		&& 'stdout' in expression
 	) {
 		const typeOfStdout = typeof expression.stdout;
@@ -112688,7 +112690,7 @@ const parseExpression = expression => {
 			return expression.stdout;
 		}
 
-		if (Buffer$1.isBuffer(expression.stdout)) {
+		if (node_buffer.Buffer.isBuffer(expression.stdout)) {
 			return expression.stdout.toString();
 		}
 
@@ -112740,7 +112742,7 @@ const parseTemplates = (templates, expressions) => {
 	return tokens;
 };
 
-const verboseDefault = debuglog('execa').enabled;
+const verboseDefault = require$$1$2.debuglog('execa').enabled;
 
 const padField = (field, padding) => String(field).padStart(padding, '0');
 
@@ -112805,7 +112807,7 @@ const handleArguments = (file, args, options = {}) => {
 };
 
 const handleOutput = (options, value, error) => {
-	if (typeof value !== 'string' && !Buffer$1.isBuffer(value)) {
+	if (typeof value !== 'string' && !node_buffer.Buffer.isBuffer(value)) {
 		// When `execaSync()` errors, we normalize it to '' to mimic `execa()`
 		return error === undefined ? undefined : '';
 	}
@@ -142723,6 +142725,8 @@ let branch_to = "release_candidate_v6.4";
 let branch_From = "decouple_mock_api";
 const artifactClient = artifactClient$2.create();
 
+path$7.resolve();
+
 let treeMap = {};
 
 const format = (command, ...args) => {
@@ -142780,7 +142784,7 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 
   
   return new Promise((resolve, reject) => {
-        exec(command, (error, stdout, stderr) => {
+        require$$0$a.exec(command, (error, stdout, stderr) => {
           if (error) {
             console.error(stderr);
             return reject()
