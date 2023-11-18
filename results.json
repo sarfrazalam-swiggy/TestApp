@@ -1,0 +1,1505 @@
+{
+  "results": [
+    {
+      "bundleName": "app.bundle",
+      "totalBytes": 2787457,
+      "mappedBytes": 2330670,
+      "unmappedBytes": 398898,
+      "eolBytes": 57861,
+      "sourceMapCommentBytes": 28,
+      "files": {
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native-community/cli-plugin-metro/node_modules/metro-runtime/src/polyfills/require.js": {
+          "size": 7152
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/metro-config/node_modules/@react-native/js-polyfills/console.js": {
+          "size": 13711
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/metro-config/node_modules/@react-native/js-polyfills/error-guard.js": {
+          "size": 3368
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/metro-config/node_modules/@react-native/js-polyfills/Object.es8.js": {
+          "size": 1496
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/AppEntry.js": {
+          "size": 215
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/interopRequireDefault.js": {
+          "size": 219
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/launch/registerRootComponent.js": {
+          "size": 1682
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/Expo.fx.js": {
+          "size": 2433
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/environment/validate.fx.js": {
+          "size": 1555
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-constants/build/Constants.js": {
+          "size": 6755
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-constants/build/Constants.types.js": {
+          "size": 1180
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/defineProperty.js": {
+          "size": 359
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/toPropertyKey.js": {
+          "size": 296
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/toPrimitive.js": {
+          "size": 558
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/typeof.js": {
+          "size": 520
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/objectWithoutProperties.js": {
+          "size": 610
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js": {
+          "size": 430
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/index.js": {
+          "size": 8744
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js": {
+          "size": 12852
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/EventEmitter/RCTDeviceEventEmitter.js": {
+          "size": 782
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/vendor/emitter/EventEmitter.js": {
+          "size": 3123
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/classCallCheck.js": {
+          "size": 269
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/createClass.js": {
+          "size": 737
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/Platform.ios.js": {
+          "size": 1287
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/NativePlatformConstantsIOS.js": {
+          "size": 1217
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/TurboModule/TurboModuleRegistry.js": {
+          "size": 1605
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/invariant/browser.js": {
+          "size": 1141
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BatchedBridge/NativeModules.js": {
+          "size": 5097
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/slicedToArray.js": {
+          "size": 327
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/arrayWithHoles.js": {
+          "size": 187
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/iterableToArrayLimit.js": {
+          "size": 650
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js": {
+          "size": 569
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/arrayLikeToArray.js": {
+          "size": 297
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/nonIterableRest.js": {
+          "size": 312
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BatchedBridge/BatchedBridge.js": {
+          "size": 805
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BatchedBridge/MessageQueue.js": {
+          "size": 8917
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/toConsumableArray.js": {
+          "size": 326
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js": {
+          "size": 227
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/iterableToArray.js": {
+          "size": 277
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/nonIterableSpread.js": {
+          "size": 311
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Performance/Systrace.js": {
+          "size": 2888
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/vendor/core/ErrorUtils.js": {
+          "size": 943
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/stringifySafe.js": {
+          "size": 3419
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/defineLazyObjectProperty.js": {
+          "size": 1485
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/AccessibilityInfo/legacySendAccessibilityEvent.ios.js": {
+          "size": 720
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/AccessibilityInfo/NativeAccessibilityManager.js": {
+          "size": 1211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/AccessibilityInfo/NativeAccessibilityInfo.js": {
+          "size": 1208
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/RendererProxy.js": {
+          "size": 341
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/RendererImplementation.js": {
+          "size": 1999
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/shims/ReactFabric.js": {
+          "size": 647
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-prod.js": {
+          "size": 228397
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactPrivate/ReactNativePrivateInitializeCore.js": {
+          "size": 42
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/InitializeCore.js": {
+          "size": 1479
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpGlobals.js": {
+          "size": 1155
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpDOM.js": {
+          "size": 662
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/DOM/Geometry/DOMRect.js": {
+          "size": 7068
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/inherits.js": {
+          "size": 568
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/setPrototypeOf.js": {
+          "size": 409
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js": {
+          "size": 462
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/assertThisInitialized.js": {
+          "size": 291
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/getPrototypeOf.js": {
+          "size": 422
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/DOM/Geometry/DOMRectReadOnly.js": {
+          "size": 4147
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpPerformance.js": {
+          "size": 1112
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/NativePerformance.js": {
+          "size": 1211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/Performance.js": {
+          "size": 12420
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/warnOnce.js": {
+          "size": 669
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/EventCounts.js": {
+          "size": 2052
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/NativePerformanceObserver.js": {
+          "size": 1219
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/PerformanceObserver.js": {
+          "size": 9097
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/RawPerformanceEntry.js": {
+          "size": 1757
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/PerformanceEventTiming.js": {
+          "size": 3956
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/PerformanceEntry.js": {
+          "size": 733
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/MemoryInfo.js": {
+          "size": 1225
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebPerformance/ReactNativeStartupTiming.js": {
+          "size": 2240
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpErrorHandling.js": {
+          "size": 804
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/ExceptionsManager.js": {
+          "size": 9512
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/wrapNativeSuper.js": {
+          "size": 1024
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/isNativeFunction.js": {
+          "size": 272
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/construct.js": {
+          "size": 741
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js": {
+          "size": 449
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Devtools/parseErrorStack.js": {
+          "size": 1972
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/stacktrace-parser/dist/stack-trace-parser.cjs.js": {
+          "size": 3212
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Devtools/parseHermesStack.js": {
+          "size": 2117
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/NativeExceptionsManager.js": {
+          "size": 6824
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/polyfillPromise.js": {
+          "size": 1031
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/PolyfillFunctions.js": {
+          "size": 1545
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Promise.js": {
+          "size": 322
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/promise/setimmediate/finally.js": {
+          "size": 363
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/promise/setimmediate/core.js": {
+          "size": 4107
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/promise/setimmediate/es6-extensions.js": {
+          "size": 4638
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpRegeneratorRuntime.js": {
+          "size": 1308
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/FeatureDetection.js": {
+          "size": 1024
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/regenerator-runtime/runtime.js": {
+          "size": 20753
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpTimers.js": {
+          "size": 3278
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Timers/JSTimers.js": {
+          "size": 11852
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Timers/NativeTiming.js": {
+          "size": 1197
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Timers/immediateShim.js": {
+          "size": 1662
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Timers/queueMicrotask.js": {
+          "size": 1208
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpXHR.js": {
+          "size": 2299
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/XMLHttpRequest.js": {
+          "size": 16862
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/get.js": {
+          "size": 727
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/superPropBase.js": {
+          "size": 320
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/BlobManager.js": {
+          "size": 9426
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/NativeBlobModule.js": {
+          "size": 2021
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/Blob.js": {
+          "size": 4643
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/BlobRegistry.js": {
+          "size": 608
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/event-target-shim/dist/event-target-shim.js": {
+          "size": 19220
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/GlobalPerformanceLogger.js": {
+          "size": 1136
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/ReactNativeFeatureFlags.js": {
+          "size": 942
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/createPerformanceLogger.js": {
+          "size": 7578
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/infoLog.js": {
+          "size": 456
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/base64-js/index.js": {
+          "size": 3505
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/RCTNetworking.ios.js": {
+          "size": 2377
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/convertRequestBody.js": {
+          "size": 776
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/FormData.js": {
+          "size": 3525
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/binaryToBase64.js": {
+          "size": 851
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/NativeNetworkingIOS.js": {
+          "size": 1211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Network/fetch.js": {
+          "size": 484
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/whatwg-fetch/dist/fetch.umd.js": {
+          "size": 16117
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebSocket/WebSocket.js": {
+          "size": 11198
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/EventEmitter/NativeEventEmitter.js": {
+          "size": 4008
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebSocket/NativeWebSocketModule.js": {
+          "size": 1216
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/WebSocket/WebSocketEvent.js": {
+          "size": 843
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/File.js": {
+          "size": 2182
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/FileReader.js": {
+          "size": 7156
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/NativeFileReaderModule.js": {
+          "size": 1217
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Blob/URL.js": {
+          "size": 6244
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/abort-controller/dist/abort-controller.js": {
+          "size": 4710
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpAlert.js": {
+          "size": 578
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Alert/Alert.js": {
+          "size": 4142
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Alert/RCTAlertManager.ios.js": {
+          "size": 496
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Alert/NativeAlertManager.js": {
+          "size": 1204
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeModules/specs/NativeDialogManagerAndroid.js": {
+          "size": 1323
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpNavigator.js": {
+          "size": 630
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpBatchedBridge.js": {
+          "size": 1568
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/HeapCapture/HeapCapture.js": {
+          "size": 710
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/HeapCapture/NativeJSCHeapCapture.js": {
+          "size": 1206
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Performance/SamplingProfiler.js": {
+          "size": 833
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Performance/NativeJSCSamplingProfiler.js": {
+          "size": 1211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/RCTLog.js": {
+          "size": 1488
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/EventEmitter/RCTNativeAppEventEmitter.js": {
+          "size": 584
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/HMRClientProdShim.js": {
+          "size": 684
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/setUpSegmentFetcher.js": {
+          "size": 735
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/SegmentFetcher/NativeSegmentFetcher.js": {
+          "size": 1215
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/AppRegistry.js": {
+          "size": 13006
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BugReporting/BugReporting.js": {
+          "size": 4129
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeModules/specs/NativeRedBox.js": {
+          "size": 1198
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BugReporting/NativeBugReporting.js": {
+          "size": 1204
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/BugReporting/dumpReactTree.js": {
+          "size": 3715
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/SceneTracker.js": {
+          "size": 787
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/HeadlessJsTaskError.js": {
+          "size": 658
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/NativeHeadlessJsTaskSupport.js": {
+          "size": 1213
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/renderApplication.js": {
+          "size": 8046
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/PerformanceLoggerContext.js": {
+          "size": 1758
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react/index.js": {
+          "size": 76
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react/cjs/react.production.min.js": {
+          "size": 7998
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/AppContainer.js": {
+          "size": 7786
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/View/View.js": {
+          "size": 6819
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/flattenStyle.js": {
+          "size": 746
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Text/TextAncestor.js": {
+          "size": 454
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/View/ViewNativeComponent.js": {
+          "size": 3470
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/NativeComponentRegistry.js": {
+          "size": 5271
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/getNativeComponentAttributes.js": {
+          "size": 5662
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/UIManager.js": {
+          "size": 8264
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/nullthrows/nullthrows.js": {
+          "size": 365
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/BridgelessUIManager.js": {
+          "size": 4608
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/NativeComponentRegistryUnstable.js": {
+          "size": 843
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/PaperUIManager.js": {
+          "size": 9241
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/NativeUIManager.js": {
+          "size": 1210
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/UIManagerProperties.js": {
+          "size": 2000
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/FabricUIManager.js": {
+          "size": 673
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js": {
+          "size": 3719
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/processAspectRatio.js": {
+          "size": 757
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/processColor.js": {
+          "size": 1061
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/normalizeColor.js": {
+          "size": 763
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/normalize-colors/index.js": {
+          "size": 10881
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/PlatformColorValueTypes.ios.js": {
+          "size": 2019
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/processFontVariant.js": {
+          "size": 467
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/processTransform.js": {
+          "size": 2218
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/differ/sizesDiffer.js": {
+          "size": 576
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/differ/matricesDiffer.js": {
+          "size": 1080
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/differ/pointsDiffer.js": {
+          "size": 475
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/differ/insetsDiffer.js": {
+          "size": 584
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/processColorArray.js": {
+          "size": 792
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/resolveAssetSource.js": {
+          "size": 2457
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeModules/specs/NativeSourceCode.js": {
+          "size": 1416
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/assets-registry/registry.js": {
+          "size": 551
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/AssetSourceResolver.js": {
+          "size": 4379
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/AssetUtils.js": {
+          "size": 965
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/PixelRatio.js": {
+          "size": 5022
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/Dimensions.js": {
+          "size": 4275
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/NativeDeviceInfo.js": {
+          "size": 1416
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/assets-registry/path-support.js": {
+          "size": 2078
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/shims/ReactNativeViewConfigRegistry.js": {
+          "size": 2914
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/verifyComponentAttributeEquivalence.js": {
+          "size": 3507
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/PlatformBaseViewConfig.js": {
+          "size": 613
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/BaseViewConfig.ios.js": {
+          "size": 11961
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/ViewConfigIgnore.js": {
+          "size": 1514
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/StaticViewConfigValidator.js": {
+          "size": 2863
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeComponent/ViewConfig.js": {
+          "size": 5600
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/codegenNativeCommands.js": {
+          "size": 736
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react/jsx-runtime.js": {
+          "size": 76
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react/cjs/react-jsx-runtime.production.min.js": {
+          "size": 996
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/AcessibilityMapping.js": {
+          "size": 2543
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/StyleSheet.js": {
+          "size": 11320
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Inspector/DevtoolsOverlay.js": {
+          "size": 10728
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Inspector/ElementBox.js": {
+          "size": 5477
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Inspector/resolveBoxStyle.js": {
+          "size": 2230
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/I18nManager.js": {
+          "size": 1435
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/NativeI18nManager.js": {
+          "size": 1203
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Inspector/BorderBox.js": {
+          "size": 2029
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Inspector/getInspectorDataForViewAtPoint.js": {
+          "size": 1340
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TraceUpdateOverlay/TraceUpdateOverlay.js": {
+          "size": 5285
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TraceUpdateOverlay/TraceUpdateOverlayNativeComponent.js": {
+          "size": 1490
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/codegenNativeComponent.js": {
+          "size": 2114
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/requireNativeComponent.js": {
+          "size": 874
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/shims/createReactNativeComponentClass.js": {
+          "size": 921
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactPrivate/ReactNativePrivateInterface.js": {
+          "size": 1323
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/EventEmitter/RCTEventEmitter.js": {
+          "size": 554
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/TextInputState.js": {
+          "size": 3423
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/RCTSingelineTextInputNativeComponent.js": {
+          "size": 6218
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/RCTTextInputViewConfig.js": {
+          "size": 6817
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/differ/deepDiffer.js": {
+          "size": 2406
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/deepFreezeAndThrowOnMutationInDev.js": {
+          "size": 1290
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/ReactFiberErrorDialog.js": {
+          "size": 1699
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/RawEventEmitter.js": {
+          "size": 915
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Events/CustomEvent.js": {
+          "size": 4456
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Events/EventPolyfill.js": {
+          "size": 3369
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/RootTag.js": {
+          "size": 1292
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/DisplayMode.js": {
+          "size": 651
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ReactNative/getCachedComponentWithDebugName.js": {
+          "size": 1559
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/BackHandler.ios.js": {
+          "size": 564
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/UnimplementedViews/UnimplementedView.js": {
+          "size": 4404
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/scheduler/index.native.js": {
+          "size": 76
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/scheduler/cjs/scheduler.native.production.min.js": {
+          "size": 5530
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/shims/ReactNative.js": {
+          "size": 465
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod.js": {
+          "size": 232323
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ActivityIndicator/ActivityIndicator.js": {
+          "size": 6468
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ProgressBarAndroid/ProgressBarAndroid.ios.js": {
+          "size": 285
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ActivityIndicator/ActivityIndicatorViewNativeComponent.js": {
+          "size": 461
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Button.js": {
+          "size": 12176
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Text/Text.js": {
+          "size": 11456
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Pressability/PressabilityDebug.js": {
+          "size": 1800
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Pressability/usePressability.js": {
+          "size": 1454
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Pressability/Pressability.js": {
+          "size": 30361
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Sound/SoundManager.js": {
+          "size": 488
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Sound/NativeSoundManager.js": {
+          "size": 1274
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Pressability/PressabilityPerformanceEventEmitter.js": {
+          "size": 1196
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Pressability/HoverState.js": {
+          "size": 1500
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/Rect.js": {
+          "size": 426
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Text/TextNativeComponent.js": {
+          "size": 1663
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/index.js": {
+          "size": 723
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedColorPropType.js": {
+          "size": 1534
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedEdgeInsetsPropType.js": {
+          "size": 604
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/prop-types/index.js": {
+          "size": 366
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/prop-types/factoryWithThrowingShims.js": {
+          "size": 1371
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/prop-types/lib/ReactPropTypesSecret.js": {
+          "size": 322
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedImagePropType.js": {
+          "size": 2918
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedViewPropTypes.js": {
+          "size": 7217
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedViewAccessibility.js": {
+          "size": 1897
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedStyleSheetPropType.js": {
+          "size": 1231
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/deprecatedCreateStrictShapeTypeChecker.js": {
+          "size": 2902
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedViewStylePropTypes.js": {
+          "size": 3192
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedLayoutPropTypes.js": {
+          "size": 4160
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedShadowPropTypesIOS.js": {
+          "size": 697
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedTransformPropTypes.js": {
+          "size": 1558
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedImageSourcePropType.js": {
+          "size": 1112
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedImageStylePropTypes.js": {
+          "size": 2256
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedPointPropType.js": {
+          "size": 489
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedTextInputPropTypes.js": {
+          "size": 6753
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedTextPropTypes.js": {
+          "size": 3486
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/deprecated-react-native-prop-types/DeprecatedTextStylePropTypes.js": {
+          "size": 3610
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/TouchableNativeFeedback.js": {
+          "size": 16338
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/TouchableOpacity.js": {
+          "size": 16689
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/Animated.js": {
+          "size": 5394
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/AnimatedImplementation.js": {
+          "size": 17839
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/animations/DecayAnimation.js": {
+          "size": 4279
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/NativeAnimatedHelper.js": {
+          "size": 21482
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/NativeAnimatedModule.js": {
+          "size": 1321
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/NativeAnimatedTurboModule.js": {
+          "size": 1326
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/animations/Animation.js": {
+          "size": 2528
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/animations/SpringAnimation.js": {
+          "size": 12105
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedColor.js": {
+          "size": 10446
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js": {
+          "size": 10284
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/InteractionManager.js": {
+          "size": 6479
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/TaskQueue.js": {
+          "size": 5678
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedInterpolation.js": {
+          "size": 10686
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/Easing.js": {
+          "size": 6192
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/bezier.js": {
+          "size": 3401
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedWithChildren.js": {
+          "size": 3971
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedNode.js": {
+          "size": 5726
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/SpringConfig.js": {
+          "size": 1994
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/animations/TimingAnimation.js": {
+          "size": 5481
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/createAnimatedComponent.js": {
+          "size": 3362
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/useMergeRefs.js": {
+          "size": 1151
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/useAnimatedProps.js": {
+          "size": 7673
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/useRefEffect.js": {
+          "size": 1216
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedProps.js": {
+          "size": 7121
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedStyle.js": {
+          "size": 7155
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedTransform.js": {
+          "size": 5114
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/AnimatedEvent.js": {
+          "size": 5094
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedValueXY.js": {
+          "size": 7971
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Renderer/public/ReactFabricPublicInstanceUtils.js": {
+          "size": 1150
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedAddition.js": {
+          "size": 3451
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedDiffClamp.js": {
+          "size": 3400
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedDivision.js": {
+          "size": 4037
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedModulo.js": {
+          "size": 3190
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedMultiplication.js": {
+          "size": 3511
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedSubtraction.js": {
+          "size": 3481
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/nodes/AnimatedTracking.js": {
+          "size": 5181
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/AnimatedMock.js": {
+          "size": 5253
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedFlatList.js": {
+          "size": 6980
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Lists/FlatList.js": {
+          "size": 21280
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/memoize-one/dist/memoize-one.cjs.js": {
+          "size": 1022
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/index.js": {
+          "size": 760
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/VirtualizeUtils.js": {
+          "size": 6990
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js": {
+          "size": 63624
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Interaction/Batchinator.js": {
+          "size": 2424
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Utilities/clamp.js": {
+          "size": 369
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Utilities/infoLog.js": {
+          "size": 456
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/ChildListCollection.js": {
+          "size": 2222
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/FillRateHelper.js": {
+          "size": 6520
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/StateSafePureComponent.js": {
+          "size": 6757
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/ViewabilityHelper.js": {
+          "size": 8126
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListCellRenderer.js": {
+          "size": 10839
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListContext.js": {
+          "size": 7371
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/CellRenderMask.js": {
+          "size": 8287
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@react-native/virtualized-lists/Lists/VirtualizedSectionList.js": {
+          "size": 19273
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedImage.js": {
+          "size": 1369
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/Image.ios.js": {
+          "size": 10666
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/@babel/runtime/helpers/asyncToGenerator.js": {
+          "size": 749
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageAnalyticsTagContext.js": {
+          "size": 1199
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageInjection.js": {
+          "size": 1392
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageViewNativeComponent.js": {
+          "size": 7539
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/TextInlineImageNativeComponent.js": {
+          "size": 1708
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/NativeImageLoaderIOS.js": {
+          "size": 1212
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageSourceUtils.js": {
+          "size": 2544
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageUtils.js": {
+          "size": 403
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedScrollView.js": {
+          "size": 9774
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/RefreshControl/RefreshControl.js": {
+          "size": 8842
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/RefreshControl/AndroidSwipeRefreshLayoutNativeComponent.js": {
+          "size": 1512
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/RefreshControl/PullToRefreshViewNativeComponent.js": {
+          "size": 1578
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js": {
+          "size": 49667
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/FrameRateLogger.js": {
+          "size": 3327
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/NativeFrameRateLogger.js": {
+          "size": 1207
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/splitLayoutProps.js": {
+          "size": 1258
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/dismissKeyboard.js": {
+          "size": 468
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Keyboard/Keyboard.js": {
+          "size": 4900
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/LayoutAnimation/LayoutAnimation.js": {
+          "size": 5157
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Keyboard/NativeKeyboardObserver.js": {
+          "size": 1208
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollContentViewNativeComponent.js": {
+          "size": 424
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollViewNativeComponent.js": {
+          "size": 2526
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/processDecelerationRate.js": {
+          "size": 616
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollContentViewNativeComponent.js": {
+          "size": 1507
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollViewCommands.js": {
+          "size": 1366
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollViewContext.js": {
+          "size": 1360
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollViewNativeComponent.js": {
+          "size": 8992
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ScrollView/ScrollViewStickyHeader.js": {
+          "size": 10358
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedSectionList.js": {
+          "size": 6992
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Lists/SectionList.js": {
+          "size": 9618
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedText.js": {
+          "size": 1367
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/components/AnimatedView.js": {
+          "size": 1367
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid.ios.js": {
+          "size": 285
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/ImageBackground.js": {
+          "size": 14299
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js": {
+          "size": 26599
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/RCTInputAccessoryViewNativeComponent.js": {
+          "size": 502
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Keyboard/KeyboardAvoidingView.js": {
+          "size": 11945
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Modal/Modal.js": {
+          "size": 8472
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Modal/ModalInjection.js": {
+          "size": 282
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Modal/NativeModalManager.js": {
+          "size": 1204
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Modal/RCTModalHostViewNativeComponent.js": {
+          "size": 465
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Pressable/Pressable.js": {
+          "size": 8714
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Pressable/useAndroidRippleForView.js": {
+          "size": 3440
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/SafeAreaView/SafeAreaView.js": {
+          "size": 1838
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/SafeAreaView/RCTSafeAreaViewNativeComponent.js": {
+          "size": 463
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/StatusBar/StatusBar.js": {
+          "size": 18930
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/StatusBar/NativeStatusBarManagerAndroid.js": {
+          "size": 1865
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/StatusBar/NativeStatusBarManagerIOS.js": {
+          "size": 2267
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Switch/Switch.js": {
+          "size": 7519
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Switch/AndroidSwitchNativeComponent.js": {
+          "size": 1518
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Switch/SwitchNativeComponent.js": {
+          "size": 1548
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/TextInput.js": {
+          "size": 27211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/AndroidTextInputNativeComponent.js": {
+          "size": 4224
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/TextInput/RCTMultilineTextInputNativeComponent.js": {
+          "size": 6366
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/Touchable.js": {
+          "size": 37446
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/BoundingDimensions.js": {
+          "size": 1244
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/PooledClass.js": {
+          "size": 4119
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/Position.js": {
+          "size": 986
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/TouchableHighlight.js": {
+          "size": 16388
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Touchable/TouchableWithoutFeedback.js": {
+          "size": 10857
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Lists/VirtualizedList.js": {
+          "size": 306
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Lists/VirtualizedSectionList.js": {
+          "size": 313
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ActionSheetIOS/ActionSheetIOS.js": {
+          "size": 5829
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/ActionSheetIOS/NativeActionSheetManager.js": {
+          "size": 1210
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/Appearance.js": {
+          "size": 3026
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/NativeAppearance.js": {
+          "size": 1202
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/AppState/AppState.js": {
+          "size": 3840
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/logError.js": {
+          "size": 831
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/AppState/NativeAppState.js": {
+          "size": 1209
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Clipboard/Clipboard.js": {
+          "size": 1133
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/Clipboard/NativeClipboard.js": {
+          "size": 1210
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/DeviceInfo.js": {
+          "size": 353
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/DevSettings.js": {
+          "size": 650
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/NativeModules/specs/NativeDevSettings.js": {
+          "size": 1212
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Linking/Linking.js": {
+          "size": 7474
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Linking/NativeIntentAndroid.js": {
+          "size": 1205
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Linking/NativeLinkingManager.js": {
+          "size": 1206
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/LogBox/LogBox.js": {
+          "size": 911
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/PanResponder.js": {
+          "size": 18251
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Interaction/TouchHistoryMath.js": {
+          "size": 3727
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/PermissionsAndroid/PermissionsAndroid.js": {
+          "size": 12513
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/PermissionsAndroid/NativePermissionsAndroid.js": {
+          "size": 3178
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/PushNotificationIOS/PushNotificationIOS.js": {
+          "size": 15011
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/PushNotificationIOS/NativePushNotificationManagerIOS.js": {
+          "size": 1215
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Settings/Settings.ios.js": {
+          "size": 1847
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Settings/NativeSettingsManager.js": {
+          "size": 1216
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Share/Share.js": {
+          "size": 3323
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Share/NativeShareModule.js": {
+          "size": 1203
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Components/ToastAndroid/ToastAndroid.ios.js": {
+          "size": 706
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Animated/useAnimatedValue.js": {
+          "size": 545
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/useColorScheme.js": {
+          "size": 788
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/use-sync-external-store/shim/index.native.js": {
+          "size": 76
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.native.production.min.js": {
+          "size": 1041
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Utilities/useWindowDimensions.js": {
+          "size": 1284
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/UTFSequence.js": {
+          "size": 1269
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Vibration/Vibration.js": {
+          "size": 2857
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Vibration/NativeVibration.js": {
+          "size": 1210
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/YellowBox/YellowBoxDeprecated.js": {
+          "size": 1952
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/StyleSheet/PlatformColorValueTypesIOS.ios.js": {
+          "size": 501
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-constants/build/ExponentConstants.js": {
+          "size": 208
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/index.js": {
+          "size": 2211
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/errors/CodedError.js": {
+          "size": 666
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/EventEmitter.js": {
+          "size": 4362
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/errors/UnavailabilityError.js": {
+          "size": 1692
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/Platform.js": {
+          "size": 1463
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/environment/browser.js": {
+          "size": 286
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/NativeViewManagerAdapter.native.js": {
+          "size": 5287
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/requireNativeModule.js": {
+          "size": 1248
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/NativeModulesProxy.native.js": {
+          "size": 3880
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/SyntheticPlatformEmitter.js": {
+          "size": 62
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/sweet/setUpErrorManager.fx.js": {
+          "size": 341
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/sweet/NativeErrorManager.js": {
+          "size": 185
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/deprecate.js": {
+          "size": 1660
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/compare-versions/index.js": {
+          "size": 2627
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/PermissionsInterface.js": {
+          "size": 427
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-modules-core/build/PermissionsHook.js": {
+          "size": 2112
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/environment/validatorState.js": {
+          "size": 421
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/environment/logging.fx.js": {
+          "size": 270
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Core/Devtools/getDevServer.js": {
+          "size": 1057
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/index.js": {
+          "size": 712
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/Asset.fx.js": {
+          "size": 640
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/PlatformUtils.js": {
+          "size": 5641
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/blueimp-md5/js/md5.js": {
+          "size": 10646
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-file-system/build/index.js": {
+          "size": 677
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-file-system/build/FileSystem.js": {
+          "size": 34775
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-file-system/build/ExponentFileSystem.js": {
+          "size": 390
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-file-system/build/ExponentFileSystemShim.js": {
+          "size": 370
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-file-system/build/FileSystem.types.js": {
+          "size": 2276
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/uuid/index.js": {
+          "size": 199
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/uuid/v4.js": {
+          "size": 585
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/uuid/lib/rng-browser.js": {
+          "size": 1207
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/uuid/lib/bytesToUuid.js": {
+          "size": 726
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/uuid/v1.js": {
+          "size": 3012
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/AssetUris.js": {
+          "size": 1560
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/url-parse/index.js": {
+          "size": 14811
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/querystringify/index.js": {
+          "size": 2274
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/requires-port/index.js": {
+          "size": 681
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/resolveAssetSource.js": {
+          "size": 1379
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/Asset.js": {
+          "size": 8156
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/ImageAssets.js": {
+          "size": 582
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/LocalAssets.js": {
+          "size": 2111
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/react-native/Libraries/Image/AssetRegistry.js": {
+          "size": 290
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/AssetSources.js": {
+          "size": 4788
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/path-browserify/index.js": {
+          "size": 12680
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/AssetSourceResolver.js": {
+          "size": 1347
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-asset/build/AssetHooks.js": {
+          "size": 1358
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/index.js": {
+          "size": 415
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/FontHooks.js": {
+          "size": 1314
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/Font.js": {
+          "size": 7407
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/Font.types.js": {
+          "size": 2224
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/ExpoFontLoader.js": {
+          "size": 78
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-font/build/FontLoader.js": {
+          "size": 2098
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/errors/ExpoErrorManager.js": {
+          "size": 1456
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo/build/launch/createRoot.native.js": {
+          "size": 236
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/App.js": {
+          "size": 657
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/StatusBar.js": {
+          "size": 956
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/setStatusBarBackgroundColor.js": {
+          "size": 454
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/setStatusBarNetworkActivityIndicatorVisible.js": {
+          "size": 362
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/setStatusBarHidden.js": {
+          "size": 362
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/setStatusBarStyle.js": {
+          "size": 369
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/styleToBarStyle.js": {
+          "size": 723
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/setStatusBarTranslucent.js": {
+          "size": 435
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/ExpoStatusBar.ios.js": {
+          "size": 1100
+        },
+        "/Users/mohammad.alam_int/coding/TestApp/node_modules/expo-status-bar/build/useColorScheme.js": {
+          "size": 643
+        },
+        "[sourceMappingURL]": {
+          "size": 28
+        },
+        "[unmapped]": {
+          "size": 398898
+        },
+        "[EOLs]": {
+          "size": 57861
+        }
+      }
+    }
+  ]
+}
