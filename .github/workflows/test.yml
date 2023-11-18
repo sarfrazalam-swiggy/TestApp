@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: 16
       - run: npm install -g yarn
+      - run: npm install -g source-map-explorer
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
