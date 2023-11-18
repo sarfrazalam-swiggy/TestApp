@@ -1,22 +1,22 @@
 'use strict';
 
-var fs$7 = require('fs');
+var require$$0 = require('fs');
 var require$$1$1 = require('os');
 var require$$2$2 = require('http');
 var require$$3$1 = require('https');
-var require$$0$2 = require('net');
+var require$$0$3 = require('net');
 var require$$1$2 = require('tls');
 var require$$4$1 = require('events');
-var require$$0$1 = require('assert');
-var require$$0 = require('util');
+var require$$0$2 = require('assert');
+var require$$0$1 = require('util');
 var Stream = require('stream');
 var require$$7 = require('buffer');
 var require$$8 = require('querystring');
 var require$$13 = require('stream/web');
-var require$$0$4 = require('node:stream');
+var require$$0$5 = require('node:stream');
 var require$$1$3 = require('node:util');
-var require$$0$3 = require('node:events');
-var require$$0$5 = require('worker_threads');
+var require$$0$4 = require('node:events');
+var require$$0$6 = require('worker_threads');
 var require$$2$3 = require('perf_hooks');
 var require$$5 = require('util/types');
 var require$$4$2 = require('async_hooks');
@@ -24,10 +24,10 @@ var require$$1$4 = require('console');
 var Url = require('url');
 var zlib$2 = require('zlib');
 var require$$6 = require('string_decoder');
-var require$$0$6 = require('diagnostics_channel');
-var require$$0$7 = require('punycode');
+var require$$0$7 = require('diagnostics_channel');
+var require$$0$8 = require('punycode');
 var path$5 = require('path');
-var require$$0$8 = require('child_process');
+var require$$0$9 = require('child_process');
 var node_buffer = require('node:buffer');
 var path$6 = require('node:path');
 var childProcess = require('node:child_process');
@@ -75,7 +75,7 @@ var context = {};
 
 Object.defineProperty(context, "__esModule", { value: true });
 context.Context = void 0;
-const fs_1$1 = fs$7;
+const fs_1$1 = require$$0;
 const os_1 = require$$1$1;
 let Context$1 = class Context {
     /**
@@ -221,7 +221,7 @@ var tls$1 = require$$1$2;
 var http$2 = require$$2$2;
 var https$1 = require$$3$1;
 var events$2 = require$$4$1;
-var util$k = require$$0;
+var util$k = require$$0$1;
 
 
 tunnel$2.httpOverHttp = httpOverHttp;
@@ -759,14 +759,14 @@ var errors$1 = {
   ResponseExceededMaxSizeError: ResponseExceededMaxSizeError$1
 };
 
-const assert$9 = require$$0$1;
+const assert$9 = require$$0$2;
 const { kDestroyed: kDestroyed$1, kBodyUsed: kBodyUsed$1 } = symbols$4;
 const { IncomingMessage } = require$$2$2;
 const stream$2 = Stream;
-const net$2 = require$$0$2;
+const net$2 = require$$0$3;
 const { InvalidArgumentError: InvalidArgumentError$l } = errors$1;
 const { Blob: Blob$3 } = require$$7;
-const nodeUtil = require$$0;
+const nodeUtil = require$$0$1;
 const { stringify: stringify$1 } = require$$8;
 
 const [nodeMajor, nodeMinor] = process.versions.node.split('.').map(v => Number(v));
@@ -1392,7 +1392,7 @@ function requireSbmh () {
 	 * Based heavily on the Streaming Boyer-Moore-Horspool C++ implementation
 	 * by Hongli Lai at: https://github.com/FooBarWidget/boyer-moore-horspool
 	 */
-	const EventEmitter = require$$0$3.EventEmitter;
+	const EventEmitter = require$$0$4.EventEmitter;
 	const inherits = require$$1$3.inherits;
 
 	function SBMH (needle) {
@@ -1603,7 +1603,7 @@ function requirePartStream () {
 	hasRequiredPartStream = 1;
 
 	const inherits = require$$1$3.inherits;
-	const ReadableStream = require$$0$4.Readable;
+	const ReadableStream = require$$0$5.Readable;
 
 	function PartStream (opts) {
 	  ReadableStream.call(this, opts);
@@ -1647,7 +1647,7 @@ function requireHeaderParser () {
 	if (hasRequiredHeaderParser) return HeaderParser_1;
 	hasRequiredHeaderParser = 1;
 
-	const EventEmitter = require$$0$3.EventEmitter;
+	const EventEmitter = require$$0$4.EventEmitter;
 	const inherits = require$$1$3.inherits;
 	const getLimit = requireGetLimit();
 
@@ -1755,7 +1755,7 @@ function requireDicer () {
 	if (hasRequiredDicer) return Dicer_1;
 	hasRequiredDicer = 1;
 
-	const WritableStream = require$$0$4.Writable;
+	const WritableStream = require$$0$5.Writable;
 	const inherits = require$$1$3.inherits;
 
 	const StreamSearch = requireSbmh();
@@ -2326,7 +2326,7 @@ function requireMultipart () {
 	//  * support limits.fieldNameSize
 	//     -- this will require modifications to utils.parseParams
 
-	const { Readable } = require$$0$4;
+	const { Readable } = require$$0$5;
 	const { inherits } = require$$1$3;
 
 	const Dicer = requireDicer();
@@ -2892,7 +2892,7 @@ function requireMain () {
 	if (hasRequiredMain) return main.exports;
 	hasRequiredMain = 1;
 
-	const WritableStream = require$$0$4.Writable;
+	const WritableStream = require$$0$5.Writable;
 	const { inherits } = require$$1$3;
 	const Dicer = requireDicer();
 
@@ -2985,7 +2985,7 @@ function requireConstants$3 () {
 	if (hasRequiredConstants$3) return constants$4;
 	hasRequiredConstants$3 = 1;
 
-	const { MessageChannel, receiveMessageOnPort } = require$$0$5;
+	const { MessageChannel, receiveMessageOnPort } = require$$0$6;
 
 	const corsSafeListedMethods = ['GET', 'HEAD', 'POST'];
 	const corsSafeListedMethodsSet = new Set(corsSafeListedMethods);
@@ -3196,7 +3196,7 @@ function requireUtil$4 () {
 	const { getGlobalOrigin } = requireGlobal();
 	const { performance } = require$$2$3;
 	const { isBlobLike, toUSVString, ReadableStreamFrom } = util$j;
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { isUint8Array } = require$$5;
 
 	// https://nodejs.org/api/crypto.html#determining-if-crypto-support-is-unavailable
@@ -4263,7 +4263,7 @@ function requireWebidl () {
 	if (hasRequiredWebidl) return webidl_1;
 	hasRequiredWebidl = 1;
 
-	const { types } = require$$0;
+	const { types } = require$$0$1;
 	const { hasOwn, toUSVString } = requireUtil$4();
 
 	/** @type {import('../../types/webidl').Webidl} */
@@ -4918,7 +4918,7 @@ var hasRequiredDataURL;
 function requireDataURL () {
 	if (hasRequiredDataURL) return dataURL;
 	hasRequiredDataURL = 1;
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { atob } = require$$7;
 	const { isomorphicDecode } = requireUtil$4();
 
@@ -5559,7 +5559,7 @@ function requireFile () {
 	hasRequiredFile = 1;
 
 	const { Blob, File: NativeFile } = require$$7;
-	const { types } = require$$0;
+	const { types } = require$$0$1;
 	const { kState } = requireSymbols$3();
 	const { isBlobLike } = requireUtil$4();
 	const { webidl } = requireWebidl();
@@ -6199,7 +6199,7 @@ function requireBody () {
 	const { DOMException, structuredClone } = requireConstants$3();
 	const { Blob, File: NativeFile } = require$$7;
 	const { kBodyUsed } = symbols$4;
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { isErrored } = util$j;
 	const { isUint8Array, isArrayBuffer } = require$$5;
 	const { File: UndiciFile } = requireFile();
@@ -6793,7 +6793,7 @@ const {
   InvalidArgumentError: InvalidArgumentError$k,
   NotSupportedError: NotSupportedError$1
 } = errors$1;
-const assert$8 = require$$0$1;
+const assert$8 = require$$0$2;
 const { kHTTP2BuildRequest: kHTTP2BuildRequest$1, kHTTP2CopyHeaders: kHTTP2CopyHeaders$1, kHTTP1BuildRequest: kHTTP1BuildRequest$1 } = symbols$4;
 const util$h = util$j;
 
@@ -7480,8 +7480,8 @@ let DispatcherBase$4 = class DispatcherBase extends Dispatcher$2 {
 
 var dispatcherBase = DispatcherBase$4;
 
-const net$1 = require$$0$2;
-const assert$7 = require$$0$1;
+const net$1 = require$$0$3;
+const assert$7 = require$$0$2;
 const util$g = util$j;
 const { InvalidArgumentError: InvalidArgumentError$i, ConnectTimeoutError } = errors$1;
 
@@ -7977,7 +7977,7 @@ function requireConstants$2 () {
 
 const util$f = util$j;
 const { kBodyUsed } = symbols$4;
-const assert$6 = require$$0$1;
+const assert$6 = require$$0$2;
 const { InvalidArgumentError: InvalidArgumentError$h } = errors$1;
 const EE = require$$4$1;
 
@@ -8214,8 +8214,8 @@ function requireLlhttp_simdWasm () {
 
 /* global WebAssembly */
 
-const assert$5 = require$$0$1;
-const net = require$$0$2;
+const assert$5 = require$$0$2;
+const net = require$$0$3;
 const http$1 = require$$2$2;
 const { pipeline: pipeline$1 } = Stream;
 const util$e = util$j;
@@ -11316,7 +11316,7 @@ var agent = Agent$4;
 
 var api$1 = {};
 
-const assert$4 = require$$0$1;
+const assert$4 = require$$0$2;
 const { Readable: Readable$3 } = Stream;
 const { RequestAbortedError: RequestAbortedError$7, NotSupportedError, InvalidArgumentError: InvalidArgumentError$c } = errors$1;
 const util$b = util$j;
@@ -11620,7 +11620,7 @@ function consumeFinish (consume, err) {
   consume.body = null;
 }
 
-const assert$3 = require$$0$1;
+const assert$3 = require$$0$2;
 const {
   ResponseStatusCodeError
 } = errors$1;
@@ -12132,7 +12132,7 @@ const {
 const util$7 = util$j;
 const { AsyncResource: AsyncResource$2 } = require$$4$2;
 const { addSignal: addSignal$2, removeSignal: removeSignal$2 } = abortSignal;
-const assert$2 = require$$0$1;
+const assert$2 = require$$0$2;
 
 const kResume = Symbol('resume');
 
@@ -12371,7 +12371,7 @@ const { InvalidArgumentError: InvalidArgumentError$8, RequestAbortedError: Reque
 const { AsyncResource: AsyncResource$1 } = require$$4$2;
 const util$6 = util$j;
 const { addSignal: addSignal$1, removeSignal: removeSignal$1 } = abortSignal;
-const assert$1 = require$$0$1;
+const assert$1 = require$$0$2;
 
 class UpgradeHandler extends AsyncResource$1 {
   constructor (opts, callback) {
@@ -12632,7 +12632,7 @@ const {
   types: {
     isPromise
   }
-} = require$$0;
+} = require$$0$1;
 
 function matchValue$1 (match, value) {
   if (typeof match === 'string') {
@@ -13175,7 +13175,7 @@ let MockInterceptor$2 = class MockInterceptor {
 mockInterceptor.MockInterceptor = MockInterceptor$2;
 mockInterceptor.MockScope = MockScope;
 
-const { promisify: promisify$1 } = require$$0;
+const { promisify: promisify$1 } = require$$0$1;
 const Client$1 = client;
 const { buildMockDispatch: buildMockDispatch$1 } = mockUtils;
 const {
@@ -13233,7 +13233,7 @@ let MockClient$2 = class MockClient extends Client$1 {
 
 var mockClient = MockClient$2;
 
-const { promisify } = require$$0;
+const { promisify } = require$$0$1;
 const Pool$2 = pool;
 const { buildMockDispatch } = mockUtils;
 const {
@@ -13795,7 +13795,7 @@ function requireHeaders () {
 	  isValidHeaderValue
 	} = requireUtil$4();
 	const { webidl } = requireWebidl();
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 
 	const kHeadersMap = Symbol('headers map');
 	const kHeadersSortedMap = Symbol('headers map sorted');
@@ -14361,8 +14361,8 @@ function requireResponse () {
 	const { getGlobalOrigin } = requireGlobal();
 	const { URLSerializer } = requireDataURL();
 	const { kHeadersList } = symbols$4;
-	const assert = require$$0$1;
-	const { types } = require$$0;
+	const assert = require$$0$2;
+	const { types } = require$$0$1;
 
 	const ReadableStream = globalThis.ReadableStream || require$$13.ReadableStream;
 	const textEncoder = new TextEncoder('utf-8');
@@ -14948,7 +14948,7 @@ function requireRequest () {
 	const { getGlobalOrigin } = requireGlobal();
 	const { URLSerializer } = requireDataURL();
 	const { kHeadersList } = symbols$4;
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = require$$4$1;
 
 	let TransformStream = globalThis.TransformStream;
@@ -15913,7 +15913,7 @@ function requireFetch () {
 	  urlHasHttpsScheme
 	} = requireUtil$4();
 	const { kState, kHeaders, kGuard, kRealm } = requireSymbols$3();
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { safelyExtractBody } = requireBody();
 	const {
 	  redirectStatusSet,
@@ -18362,7 +18362,7 @@ function requireUtil$3 () {
 	const { getEncoding } = requireEncoding();
 	const { DOMException } = requireConstants$3();
 	const { serializeAMimeType, parseMIMEType } = requireDataURL();
-	const { types } = require$$0;
+	const { types } = require$$0$1;
 	const { StringDecoder } = require$$6;
 	const { btoa } = require$$7;
 
@@ -19116,7 +19116,7 @@ function requireUtil$2 () {
 	if (hasRequiredUtil$2) return util$3;
 	hasRequiredUtil$2 = 1;
 
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { URLSerializer } = requireDataURL();
 	const { isValidHeaderName } = requireUtil$4();
 
@@ -19183,7 +19183,7 @@ function requireCache () {
 	const { kState, kHeaders, kGuard, kRealm } = requireSymbols$3();
 	const { fetching } = requireFetch();
 	const { urlIsHttpHttpsScheme, createDeferredPromise, readAllBytes } = requireUtil$4();
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { getGlobalDispatcher } = global$2;
 
 	/**
@@ -20191,7 +20191,7 @@ function requireUtil$1 () {
 	if (hasRequiredUtil$1) return util$2;
 	hasRequiredUtil$1 = 1;
 
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 	const { kHeadersList } = symbols$4;
 
 	function isCTLExcludingHtab (value) {
@@ -20493,7 +20493,7 @@ function requireParse () {
 	const { maxNameValuePairSize, maxAttributeValueSize } = requireConstants$1();
 	const { isCTLExcludingHtab } = requireUtil$1();
 	const { collectASequenceOfCodePointsFast } = requireDataURL();
-	const assert = require$$0$1;
+	const assert = require$$0$2;
 
 	/**
 	 * @description Parses the field-value attributes of a set-cookie header string.
@@ -21088,7 +21088,7 @@ function requireEvents () {
 
 	const { webidl } = requireWebidl();
 	const { kEnumerableProperty } = util$j;
-	const { MessagePort } = require$$0$5;
+	const { MessagePort } = require$$0$6;
 
 	/**
 	 * @see https://html.spec.whatwg.org/multipage/comms.html#messageevent
@@ -21605,7 +21605,7 @@ function requireConnection () {
 	if (hasRequiredConnection) return connection;
 	hasRequiredConnection = 1;
 
-	const diagnosticsChannel = require$$0$6;
+	const diagnosticsChannel = require$$0$7;
 	const { uid, states } = requireConstants();
 	const {
 	  kReadyState,
@@ -21986,7 +21986,7 @@ function requireReceiver () {
 	hasRequiredReceiver = 1;
 
 	const { Writable } = Stream;
-	const diagnosticsChannel = require$$0$6;
+	const diagnosticsChannel = require$$0$7;
 	const { parserStates, opcodes, states, emptyBuffer } = requireConstants();
 	const { kReadyState, kSentClose, kResponse, kReceivedClose } = requireSymbols();
 	const { isValidStatusCode, failWebsocketConnection, websocketMessageReceived } = requireUtil();
@@ -22357,7 +22357,7 @@ function requireWebsocket () {
 	const { ByteParser } = requireReceiver();
 	const { kEnumerableProperty, isBlobLike } = util$j;
 	const { getGlobalDispatcher } = global$2;
-	const { types } = require$$0;
+	const { types } = require$$0$1;
 
 	let experimentalWarned = false;
 
@@ -102289,7 +102289,7 @@ var require$$1 = [
 	]
 ];
 
-var punycode = require$$0$7;
+var punycode = require$$0$8;
 var mappingTable = require$$1;
 
 var PROCESSING_OPTIONS = {
@@ -102482,7 +102482,7 @@ tr46.toUnicode = function(domain_name, useSTD3) {
 tr46.PROCESSING_OPTIONS = PROCESSING_OPTIONS;
 
 (function (module) {
-	const punycode = require$$0$7;
+	const punycode = require$$0$8;
 	const tr46$1 = tr46;
 
 	const specialSchemes = {
@@ -109511,7 +109511,7 @@ Object.defineProperty(fileCommand, "__esModule", { value: true });
 fileCommand.prepareKeyValueMessage = fileCommand.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs$6 = __importStar$7(fs$7);
+const fs$6 = __importStar$7(require$$0);
 const os = __importStar$7(require$$1$1);
 const uuid_1 = require$$2;
 const utils_1$5 = utils$1;
@@ -109732,7 +109732,7 @@ function requireSummary () {
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
 		const os_1 = require$$1$1;
-		const fs_1 = fs$7;
+		const fs_1 = require$$0;
 		const { access, appendFile, writeFile } = fs_1.promises;
 		exports.SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 		exports.SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
@@ -110432,7 +110432,7 @@ function requireMode () {
 	mode = isexe;
 	isexe.sync = sync;
 
-	var fs = fs$7;
+	var fs = require$$0;
 
 	function isexe (path, options, cb) {
 	  fs.stat(path, function (er, stat) {
@@ -110482,7 +110482,7 @@ function requireWindows () {
 	windows = isexe;
 	isexe.sync = sync;
 
-	var fs = fs$7;
+	var fs = require$$0;
 
 	function checkPathExt (path, options) {
 	  var pathext = options.pathExt !== undefined ?
@@ -110844,7 +110844,7 @@ var shebangCommand$1 = (string = '') => {
 	return argument ? `${binary} ${argument}` : binary;
 };
 
-const fs$5 = fs$7;
+const fs$5 = require$$0;
 const shebangCommand = shebangCommand$1;
 
 function readShebang$1(command) {
@@ -111014,7 +111014,7 @@ var enoent$1 = {
     notFoundError,
 };
 
-const cp = require$$0$8;
+const cp = require$$0$9;
 const parse = parse_1;
 const enoent = enoent$1;
 
@@ -113109,7 +113109,7 @@ var __importStar$6 = (commonjsGlobal && commonjsGlobal.__importStar) || function
 };
 Object.defineProperty(uploadSpecification, "__esModule", { value: true });
 uploadSpecification.getUploadSpecification = void 0;
-const fs$4 = __importStar$6(fs$7);
+const fs$4 = __importStar$6(require$$0);
 const core_1$2 = requireCore();
 const path_1$1 = path$5;
 const path_and_artifact_name_validation_1$1 = pathAndArtifactNameValidation;
@@ -113224,7 +113224,7 @@ function requireOld () {
 
 	var pathModule = path$5;
 	var isWindows = process.platform === 'win32';
-	var fs = fs$7;
+	var fs = require$$0;
 
 	// JavaScript implementation of realpath, ported from node pre-v6
 
@@ -113520,7 +113520,7 @@ function requireFs_realpath () {
 	realpath.monkeypatch = monkeypatch;
 	realpath.unmonkeypatch = unmonkeypatch;
 
-	var fs = fs$7;
+	var fs = require$$0;
 	var origRealpath = fs.realpath;
 	var origRealpathSync = fs.realpathSync;
 
@@ -114939,7 +114939,7 @@ function requireCommon () {
 	  return Object.prototype.hasOwnProperty.call(obj, field)
 	}
 
-	var fs = fs$7;
+	var fs = require$$0;
 	var path = path$5;
 	var minimatch = requireMinimatch();
 	var isAbsolute = requirePathIsAbsolute();
@@ -115182,7 +115182,7 @@ function requireSync () {
 	minimatch.Minimatch;
 	requireGlob().Glob;
 	var path = path$5;
-	var assert = require$$0$1;
+	var assert = require$$0$2;
 	var isAbsolute = requirePathIsAbsolute();
 	var common = requireCommon();
 	var setopts = common.setopts;
@@ -115775,7 +115775,7 @@ function requireGlob () {
 	var inherits = requireInherits();
 	var EE = require$$4$1.EventEmitter;
 	var path = path$5;
-	var assert = require$$0$1;
+	var assert = require$$0$2;
 	var isAbsolute = requirePathIsAbsolute();
 	var globSync = requireSync();
 	var common = requireCommon();
@@ -116516,9 +116516,9 @@ function requireGlob () {
 	return glob_1;
 }
 
-const assert = require$$0$1;
+const assert = require$$0$2;
 const path$1 = path$5;
-const fs$3 = fs$7;
+const fs$3 = require$$0;
 let glob = undefined;
 try {
   glob = requireGlob();
@@ -116889,7 +116889,7 @@ rimraf.sync = rimrafSync;
 	/*
 	 * Module dependencies.
 	 */
-	const fs = fs$7;
+	const fs = require$$0;
 	const os = require$$1$1;
 	const path = path$5;
 	const crypto = require$$3$2;
@@ -117664,7 +117664,7 @@ var tmpExports = tmp$1.exports;
 
 (function (module) {
 
-	const { promisify } = require$$0;
+	const { promisify } = require$$0$1;
 	const tmp = tmpExports;
 
 	// file
@@ -118115,7 +118115,7 @@ var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || func
 Object.defineProperty(utils, "__esModule", { value: true });
 utils.digestForStream = utils.sleep = utils.getProperRetention = utils.rmFile = utils.getFileSize = utils.createEmptyFilesForArtifact = utils.createDirectoriesForArtifact = utils.displayHttpDiagnostics = utils.getArtifactUrl = utils.createHttpClient = utils.getUploadHeaders = utils.getDownloadHeaders = utils.getContentRange = utils.tryGetRetryAfterValueTimeInMilliseconds = utils.isThrottledStatusCode = utils.isRetryableStatusCode = utils.isForbiddenStatusCode = utils.isSuccessStatusCode = utils.getApiVersion = utils.parseEnvNumber = utils.getExponentialRetryTimeInMilliseconds = void 0;
 const crypto_1 = __importDefault(require$$3$2);
-const fs_1 = fs$7;
+const fs_1 = require$$0;
 const core_1$1 = requireCore();
 const http_client_1$1 = lib$1;
 const auth_1 = auth;
@@ -118520,9 +118520,9 @@ var __asyncValues = (commonjsGlobal && commonjsGlobal.__asyncValues) || function
 };
 Object.defineProperty(uploadGzip, "__esModule", { value: true });
 uploadGzip.createGZipFileInBuffer = uploadGzip.createGZipFileOnDisk = void 0;
-const fs$2 = __importStar$5(fs$7);
+const fs$2 = __importStar$5(require$$0);
 const zlib$1 = __importStar$5(zlib$2);
-const util_1$1 = require$$0;
+const util_1$1 = require$$0$1;
 const stat$1 = (0, util_1$1.promisify)(fs$2.stat);
 /**
  * GZipping certain files that are already compressed will likely not yield further size reductions. Creating large temporary gzip
@@ -118752,13 +118752,13 @@ var __awaiter$2 = (commonjsGlobal && commonjsGlobal.__awaiter) || function (this
 };
 Object.defineProperty(uploadHttpClient, "__esModule", { value: true });
 uploadHttpClient.UploadHttpClient = void 0;
-const fs$1 = __importStar$3(fs$7);
+const fs$1 = __importStar$3(require$$0);
 const core$2 = __importStar$3(requireCore());
 const tmp = __importStar$3(tmpPromiseExports);
 const stream = __importStar$3(Stream);
 const utils_1$2 = utils;
 const config_variables_1$2 = configVariables;
-const util_1 = require$$0;
+const util_1 = require$$0$1;
 const url_1$1 = Url;
 const perf_hooks_1$1 = require$$2$3;
 const status_reporter_1$1 = statusReporter;
@@ -119168,7 +119168,7 @@ var __awaiter$1 = (commonjsGlobal && commonjsGlobal.__awaiter) || function (this
 };
 Object.defineProperty(downloadHttpClient, "__esModule", { value: true });
 downloadHttpClient.DownloadHttpClient = void 0;
-const fs = __importStar$2(fs$7);
+const fs = __importStar$2(require$$0);
 const core$1 = __importStar$2(requireCore());
 const zlib = __importStar$2(zlib$2);
 const utils_1$1 = utils;
@@ -119724,7 +119724,7 @@ const format = (command, ...args) => {
 
 function getReactNativeBin() {
   const localBin = "./node_modules/.bin/react-native"; // ! This needs to be changes
-  if (fs$7.existsSync(localBin)) return localBin;
+  if (require$$0.existsSync(localBin)) return localBin;
   try {
     const reactNativeDir = path$5.dirname(
       require.resolve("react-native/package.json") // ! this needs to be changed
@@ -119741,7 +119741,7 @@ function getReactNativeBin() {
 }
 
 function getEntryPoint() {
-  const pkgJSON = JSON.parse(fs$7.readFileSync("./package.json"));
+  const pkgJSON = JSON.parse(require$$0.readFileSync("./package.json"));
 
   let entry = pkgJSON.main || "index.js";
   if (entry[0] !== "." && entry[0] !== "/" && entry[0] !== "\\") {
@@ -119764,7 +119764,7 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 
   
   return new Promise((resolve, reject) => {
-        require$$0$8.exec(command, (error, stdout, stderr) => {
+        require$$0$9.exec(command, (error, stdout, stderr) => {
           if (error) {
             console.error(stderr);
             return reject()
@@ -119784,7 +119784,7 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
 
   await $`npx source-map-explorer ${bundle} ${sourcemap} --json ${filename} --no-border-checks`;
 
-  const res = JSON.parse(fs$7.readFileSync(filename, 'utf8'));
+  const res = JSON.parse(require$$0.readFileSync(filename, 'utf8'));
 
   return res;
   } catch (err) {
@@ -119866,12 +119866,12 @@ class TreeAnalyzer {
 
 function getFiles(dir, files = []) {
   // Get an array of all files and directories in the passed directory using fs.readdirSync
-  const fileList = fs$7.readdirSync(dir);
+  const fileList = require$$0.readdirSync(dir);
   // Create the full path of the file/directory by concatenating the passed directory and file/directory name
   for (const file of fileList) {
     const name = `${dir}/${file}`;
     // Check if the current file/directory is a directory using fs.statSync
-    if (fs$7.statSync(name).isDirectory()) {
+    if (require$$0.statSync(name).isDirectory()) {
       // If it is a directory, recursively call the getFiles function with the directory path and the files array
       getFiles(name, files);
     } else {
@@ -119882,13 +119882,72 @@ function getFiles(dir, files = []) {
   return files
 }
 
+const commentDetails = async () => {
+  const GITHUB_TOKEN = core$5.getInput("GITHUB_TOKEN");
+
+  const result = JSON.parse(require$$0.readFileSync(path$5.resolve('res.json'))).results[0];
+
+  const files = result.files;
+
+  const updatedTotalBytes = 0;
+
+  let body = [
+    'Here are the changes of the updated files'
+  ];
+
+  Object.keys(files).map((item) => {
+    const regex = /[\.+]/g;
+
+    if(item.match(regex)) 
+      return null;
+
+    files[item];
+    const updatedStr = '\`';
+    
+    if(files[item] < 0)
+      updatedStr += '+';
+    else
+      updatedStr += '-';
+    
+    updatedStr += ` [${files[item]}] ${item}\``;
+
+    body.push(updatedStr);
+
+    updatedTotalBytes += files[item];
+  });
+
+  body = [
+    `Total Bytes updated \`${updatedTotalBytes}\``,
+    ...body
+  ];
+
+  const bodyStr = body.join('\n');
+
+  const octokit = github.getOctokit(GITHUB_TOKEN);
+
+  const { context } = github;
+
+  const { repository, pull_request } = context.payload;
+
+  await octokit.rest.pulls.createReviewComment({
+    owner: repository.owner,
+    pull_number: pull_request,
+    repo: repository.name,
+    body: bodyStr
+  });
+
+  console.log("Commented on the Pull Request");
+
+
+};
+
 const branchBundler = async (branch_name) => {
-  if (fs$7.existsSync(path$5.resolve(folder_dir)))
-    fs$7.rmSync(path$5.resolve(folder_dir), {
+  if (require$$0.existsSync(path$5.resolve(folder_dir)))
+    require$$0.rmSync(path$5.resolve(folder_dir), {
       recursive: true,
     });
 
-  fs$7.mkdirSync(path$5.resolve(folder_dir));
+  require$$0.mkdirSync(path$5.resolve(folder_dir));
 
   const fileDetails = {
     bundle: path$5.resolve(folder_dir, `${branch_name}.bundle`),
@@ -119958,22 +120017,22 @@ const analyzeBundler = async ({
 
   console.log(stdout);
 
-  if(fs$7.existsSync(branch_From)) {
+  if(require$$0.existsSync(branch_From)) {
     const files = getFiles(branch_From);
     console.log(files);
   }
 
   console.log(branch_From_map, branch_To_map);
 
-  treeMap[branch_From] = JSON.parse(fs$7.readFileSync(branch_From_map.filename, 'utf8'));
+  treeMap[branch_From] = JSON.parse(require$$0.readFileSync(branch_From_map.filename, 'utf8'));
 
-  treeMap[branch_to] = JSON.parse(fs$7.readFileSync(branch_To_map.filename, 'utf8'));
+  treeMap[branch_to] = JSON.parse(require$$0.readFileSync(branch_To_map.filename, 'utf8'));
 
   const treeAnalyzer = new TreeAnalyzer();
 
   const res = treeAnalyzer.analyze();
 
-  fs$7.writeFileSync(
+  require$$0.writeFileSync(
       path$5.resolve('res.json'),
       JSON.stringify(res)
   );
@@ -119987,6 +120046,8 @@ const analyzeBundler = async ({
   };
 
   await artifactClient.uploadArtifact('files', files, rootDirectory, options);
+
+  await commentDetails();
 
 };
 
