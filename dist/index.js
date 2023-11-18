@@ -142794,6 +142794,8 @@ const generateBundleAndSourceMap = async (bundle_output, source_map) => {
 };
 
 const generateTreeMap = async (bundle, sourcemap, filename) => {
+
+  try {
   console.log("Generating tree map ", bundle, sourcemap);
   const res = await lib.explore(
     {
@@ -142809,7 +142811,12 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
   );
 
   return res;
-};
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
+ };
 
 function getFiles(dir, files = []) {
   // Get an array of all files and directories in the passed directory using fs.readdirSync
