@@ -119902,14 +119902,9 @@ const commentDetails = async () => {
       return null;
 
     files[item];
-    let updatedStr = '\`';
-    
-    if(files[item] < 0)
-      updatedStr += '+';
-    else
-      updatedStr += '-';
-    
-    updatedStr += ` [${files[item]}] ${item}\``;
+    let updatedStr = '';
+      
+    updatedStr += `\\color{${files[item] < 0 ? "green" : "red"}}{\\textsf{[${files[item]}] ${item}}}`;
 
     body.push(updatedStr);
 
@@ -119917,7 +119912,7 @@ const commentDetails = async () => {
   });
 
   body = [
-    `Total Bytes updated \`${updatedTotalBytes} Bytes\` `,
+    `Total Bytes $\\color{${updatedTotalBytes < 0 ? "green": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "removed" : "added"} ${Math.abs(updatedTotalBytes)} Bytes}}$ `,
     ...body
   ];
 
@@ -119927,7 +119922,7 @@ const commentDetails = async () => {
 
   const { context } = github;
 
-  const { repository, pull_request } = context.payload;
+  const { pull_request } = context.payload;
 
   await octokit.rest.issues.createComment({
     ...context.repo,
@@ -119936,8 +119931,6 @@ const commentDetails = async () => {
   });
 
   console.log("Commented on the Pull Request");
-
-
 };
 
 const branchBundler = async (branch_name) => {
