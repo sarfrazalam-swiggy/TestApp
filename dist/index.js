@@ -119904,7 +119904,7 @@ const commentDetails = async () => {
     files[item];
     let updatedStr = '';
       
-    updatedStr += `\\color{${files[item] < 0 ? "green" : "red"}}{\\textsf{[${files[item]}] ${item}}}`;
+    updatedStr += `$\\color{${files[item] < 0 ? "green" : "red"}}{\\textsf{[${files[item]}] ${item}}}$`;
 
     body.push(updatedStr);
 
