@@ -119878,7 +119878,7 @@ class TreeAnalyzer {
 
 const commentDetails = async () => {
   const GITHUB_TOKEN = core$5.getInput("GITHUB_TOKEN");
-  const file_exclusions = core$5.getInput("EXCLUDE").split("\n");
+  const file_exclusions = core$5.getInput("EXCLUDE");
 
   console.log(file_exclusions);
 
@@ -119899,19 +119899,6 @@ const commentDetails = async () => {
     if(item.match(regex)) 
       return null;
     
-    let flag = false;
-
-    file_exclusions.forEach((file) => {
-      const file_regex = new RegExp(file,'g');
-
-      if(item.match(file_regex)) {
-        flag = true;
-      }
-    });
-
-    if(flag)
-      return null;
-
     files[item];
     let updatedStr = '';
 
