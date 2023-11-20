@@ -119794,6 +119794,18 @@ const generateTreeMap = async (bundle, sourcemap, filename) => {
   }
  };
 
+function formatBytes(bytes, decimals = 2) {
+    if (!+bytes) return '0 Bytes'
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+}
+
 class TreeAnalyzer {
     bundles = {
         [branch_From] : treeMap[branch_From].results[0],
@@ -119903,8 +119915,10 @@ const commentDetails = async () => {
 
     files[item];
     let updatedStr = '';
+
+    const sign = files[item] < 0 ? '-' : '+';
       
-    updatedStr += `$\\color{${files[item] < 0 ? "green" : "red"}}{[${files[item]}] ${item}}$`;
+    updatedStr += `$\\color{${files[item] < 0 ? "green" : "red"}}{ ${sign}   ${formatBytes(Math.abs(files[item]))}   ${item}}$`;
 
     body.push(updatedStr);
 
@@ -119912,7 +119926,7 @@ const commentDetails = async () => {
   });
 
   body = [
-    `Total Bytes $\\color{${updatedTotalBytes < 0 ? "green": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "removed" : "added"} ${Math.abs(updatedTotalBytes)} Bytes}}$ `,
+    `Total Bytes $\\color{${updatedTotalBytes < 0 ? "green": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "removed" : "added"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
     ...body
   ];
 
