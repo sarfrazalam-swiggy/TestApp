@@ -119904,7 +119904,7 @@ const commentDetails = async () => {
   let updatedTotalBytes = 0;
 
   let body = [
-    'Here are the changes of the updated files'
+    'Here are the changes of the updated files: \n\n'
   ];
 
   Object.keys(files).map((item) => {
@@ -119918,7 +119918,7 @@ const commentDetails = async () => {
 
     const sign = files[item] < 0 ? '-' : '+';
       
-    updatedStr += `$\\color{${files[item] < 0 ? "green" : "red"}}{ ${sign}   ${formatBytes(Math.abs(files[item]))}   ${item}}$`;
+    updatedStr += `$\\color{${files[item] < 0 ? "lime" : "red"}}{ ${sign} \\space  ${formatBytes(Math.abs(files[item]))}.................${item}}$`;
 
     body.push(updatedStr);
 
@@ -119926,7 +119926,7 @@ const commentDetails = async () => {
   });
 
   body = [
-    `Total Bytes $\\color{${updatedTotalBytes < 0 ? "green": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "removed" : "added"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
+    `Total Bytes :  $\\color{${updatedTotalBytes < 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "Removed" : "Added"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
     ...body
   ];
 
