@@ -119926,7 +119926,7 @@ const commentDetails = async () => {
   });
 
   body = [
-    `Total Bytes :  $\\color{${updatedTotalBytes < 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "Removed" : "Added"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
+    `Bundle size  $\\color{${updatedTotalBytes < 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "reduced by" : "increased by"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
     ...body
   ];
 
