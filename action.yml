@@ -13,6 +13,9 @@ inputs:
     description: 'Branch Name'
   BRANCH_TO: 
     description: 'Branch To'
+  EXCLUDE:  
+    description: 'File Exlusions'
+
 
 runs:
   using: 'node16'
