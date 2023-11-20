@@ -119876,24 +119876,6 @@ class TreeAnalyzer {
 
 }
 
-function getFiles(dir, files = []) {
-  // Get an array of all files and directories in the passed directory using fs.readdirSync
-  const fileList = require$$0.readdirSync(dir);
-  // Create the full path of the file/directory by concatenating the passed directory and file/directory name
-  for (const file of fileList) {
-    const name = `${dir}/${file}`;
-    // Check if the current file/directory is a directory using fs.statSync
-    if (require$$0.statSync(name).isDirectory()) {
-      // If it is a directory, recursively call the getFiles function with the directory path and the files array
-      getFiles(name, files);
-    } else {
-      // If it is a file, push the full path to the files array
-      files.push(name);
-    }
-  }
-  return files
-}
-
 const commentDetails = async () => {
   const GITHUB_TOKEN = core$5.getInput("GITHUB_TOKEN");
 
@@ -119916,9 +119898,9 @@ const commentDetails = async () => {
     files[item];
     let updatedStr = '';
 
-    const sign = files[item] < 0 ? '-' : '+';
+    const sign = files[item] > 0 ? '-' : '+';
       
-    updatedStr += `$\\color{${files[item] < 0 ? "lime" : "red"}}{ ${sign} \\space  ${formatBytes(Math.abs(files[item]))}.................${item}}$`;
+    updatedStr += `$\\color{${files[item] > 0 ? "lime" : "red"}}{ ${sign} \\space  ${formatBytes(Math.abs(files[item]))}.................${item}}$`;
 
     body.push(updatedStr);
 
@@ -119926,7 +119908,7 @@ const commentDetails = async () => {
   });
 
   body = [
-    `Bundle size  $\\color{${updatedTotalBytes < 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes < 0 ? "reduced by" : "increased by"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
+    `Bundle size  $\\color{${updatedTotalBytes > 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes > 0 ? "reduced by" : "increased by"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
     ...body
   ];
 
@@ -120018,17 +120000,6 @@ const analyzeBundler = async ({
     source_map: path$5.resolve( to, folder_dir,`${branch_to}.map`),
     filename: path$5.resolve(to, folder_dir,`${branch_to}.json`)
   };
-
-  const {stdout} = await $`ls`;
-
-  console.log(stdout);
-
-  if(require$$0.existsSync(branch_From)) {
-    const files = getFiles(branch_From);
-    console.log(files);
-  }
-
-  console.log(branch_From_map, branch_To_map);
 
   treeMap[branch_From] = JSON.parse(require$$0.readFileSync(branch_From_map.filename, 'utf8'));
 
