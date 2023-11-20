@@ -37,6 +37,10 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           TYPE: BRANCH
           BRANCH_NAME: ${{ github.base_ref }}
+          EXCLUDE: |-
+            node_modules
+            
+          
       - uses: ./
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
