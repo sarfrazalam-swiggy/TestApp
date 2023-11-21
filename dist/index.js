@@ -157825,6 +157825,7 @@ const commentDetails = async () => {
     `Bundle size  $\\color{${updatedTotalBytes > 0 ? "lime": "red"}}{\\textsf{${updatedTotalBytes > 0 ? "reduced by" : "increased by"} ${formatBytes(Math.abs(updatedTotalBytes))}}}$ `,
     ...body
   ];
+  console.log(core$5.getInput("CLIENT_EMAIL"), core$5.getInput("PRIVATE_KEY"));
 
   const spreadSheet = createReport("Bundle Changes - Code Review");
 
