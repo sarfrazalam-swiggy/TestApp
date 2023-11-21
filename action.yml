@@ -15,6 +15,10 @@ inputs:
     description: 'Branch To'
   EXCLUDE:  
     description: 'File Exlusions'
+  CLIENT_EMAIL:
+    description: 'Google Sheets Client Email'
+  PRIVATE_KEY:
+    description: 'Google Sheets Private Key'
 
 
 runs:
