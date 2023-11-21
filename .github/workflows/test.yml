@@ -15,12 +15,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Create .env with Github Secrets and run script
-        run: |
-          touch .env
-          echo CLIENT_EMAIL=$CLIENT_EMAIL >> .env
-          echo PRIVATE_KEY=$PRIVATE_KEY >> .env
-          npm run script-that-accesses-env-vars
         env:
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
@@ -56,3 +50,5 @@ jobs:
           BRANCH_TO: ${{ github.base_ref }}
           EXCLUDE: |
             node_modules
+          CLIENT_EMAIL: ${{ env.CLIENT_EMAIL }}
+          PRIVATE_KEY: ${{ env.PRIVATE_KEY }}
