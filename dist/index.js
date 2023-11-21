@@ -1,12 +1,14 @@
 'use strict';
 
 var require$$0$1 = require('fs');
+var path$9 = require('path');
 var require$$1$1 = require('os');
+var require$$3$1 = require('crypto');
 var require$$2$3 = require('http');
 var require$$1$4 = require('https');
 var require$$0$3 = require('net');
 var require$$1$3 = require('tls');
-var require$$4$2 = require('events');
+var require$$4$3 = require('events');
 var require$$0$2 = require('assert');
 var require$$1$2 = require('util');
 var Stream$6 = require('stream');
@@ -19,25 +21,23 @@ var require$$0$5 = require('node:events');
 var require$$0$7 = require('worker_threads');
 var require$$2$4 = require('perf_hooks');
 var require$$5 = require('util/types');
-var require$$4$3 = require('async_hooks');
+var require$$4$4 = require('async_hooks');
 var require$$1$7 = require('console');
 var Url = require('url');
 var zlib$2 = require('zlib');
 var require$$6 = require('string_decoder');
 var require$$0$8 = require('diagnostics_channel');
 var require$$0$9 = require('punycode');
-var path$8 = require('path');
 var require$$0$a = require('child_process');
 var node_buffer = require('node:buffer');
-var path$9 = require('node:path');
+var path$a = require('node:path');
 var childProcess = require('node:child_process');
 var process$2 = require('node:process');
 var url$1 = require('node:url');
-var os$3 = require('node:os');
+var os$4 = require('node:os');
 var node_fs = require('node:fs');
 var promises = require('node:timers/promises');
 var require$$1$8 = require('tty');
-var require$$0$b = require('crypto');
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -69,6 +69,452 @@ function getAugmentedNamespace(n) {
 	});
 	return a;
 }
+
+var main$3 = {exports: {}};
+
+var name$1 = "dotenv";
+var version$3 = "16.3.1";
+var description$1 = "Loads environment variables from .env file";
+var main$2 = "lib/main.js";
+var types$2 = "lib/main.d.ts";
+var exports$1 = {
+	".": {
+		types: "./lib/main.d.ts",
+		require: "./lib/main.js",
+		"default": "./lib/main.js"
+	},
+	"./config": "./config.js",
+	"./config.js": "./config.js",
+	"./lib/env-options": "./lib/env-options.js",
+	"./lib/env-options.js": "./lib/env-options.js",
+	"./lib/cli-options": "./lib/cli-options.js",
+	"./lib/cli-options.js": "./lib/cli-options.js",
+	"./package.json": "./package.json"
+};
+var scripts$1 = {
+	"dts-check": "tsc --project tests/types/tsconfig.json",
+	lint: "standard",
+	"lint-readme": "standard-markdown",
+	pretest: "npm run lint && npm run dts-check",
+	test: "tap tests/*.js --100 -Rspec",
+	prerelease: "npm test",
+	release: "standard-version"
+};
+var repository$1 = {
+	type: "git",
+	url: "git://github.com/motdotla/dotenv.git"
+};
+var funding = "https://github.com/motdotla/dotenv?sponsor=1";
+var keywords$1 = [
+	"dotenv",
+	"env",
+	".env",
+	"environment",
+	"variables",
+	"config",
+	"settings"
+];
+var readmeFilename = "README.md";
+var license$1 = "BSD-2-Clause";
+var devDependencies$1 = {
+	"@definitelytyped/dtslint": "^0.0.133",
+	"@types/node": "^18.11.3",
+	decache: "^4.6.1",
+	sinon: "^14.0.1",
+	standard: "^17.0.0",
+	"standard-markdown": "^7.1.0",
+	"standard-version": "^9.5.0",
+	tap: "^16.3.0",
+	tar: "^6.1.11",
+	typescript: "^4.8.4"
+};
+var engines$1 = {
+	node: ">=12"
+};
+var browser$1 = {
+	fs: false
+};
+var require$$4$2 = {
+	name: name$1,
+	version: version$3,
+	description: description$1,
+	main: main$2,
+	types: types$2,
+	exports: exports$1,
+	scripts: scripts$1,
+	repository: repository$1,
+	funding: funding,
+	keywords: keywords$1,
+	readmeFilename: readmeFilename,
+	license: license$1,
+	devDependencies: devDependencies$1,
+	engines: engines$1,
+	browser: browser$1
+};
+
+const fs$b = require$$0$1;
+const path$8 = path$9;
+const os$3 = require$$1$1;
+const crypto$6 = require$$3$1;
+const packageJson = require$$4$2;
+
+const version$2 = packageJson.version;
+
+const LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg;
+
+// Parse src into an Object
+function parse$6 (src) {
+  const obj = {};
+
+  // Convert buffer to string
+  let lines = src.toString();
+
+  // Convert line breaks to same format
+  lines = lines.replace(/\r\n?/mg, '\n');
+
+  let match;
+  while ((match = LINE.exec(lines)) != null) {
+    const key = match[1];
+
+    // Default undefined or null to empty string
+    let value = (match[2] || '');
+
+    // Remove whitespace
+    value = value.trim();
+
+    // Check if double quoted
+    const maybeQuote = value[0];
+
+    // Remove surrounding quotes
+    value = value.replace(/^(['"`])([\s\S]*)\1$/mg, '$2');
+
+    // Expand newlines if double quoted
+    if (maybeQuote === '"') {
+      value = value.replace(/\\n/g, '\n');
+      value = value.replace(/\\r/g, '\r');
+    }
+
+    // Add to object
+    obj[key] = value;
+  }
+
+  return obj
+}
+
+function _parseVault (options) {
+  const vaultPath = _vaultPath(options);
+
+  // Parse .env.vault
+  const result = DotenvModule.configDotenv({ path: vaultPath });
+  if (!result.parsed) {
+    throw new Error(`MISSING_DATA: Cannot parse ${vaultPath} for an unknown reason`)
+  }
+
+  // handle scenario for comma separated keys - for use with key rotation
+  // example: DOTENV_KEY="dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=prod,dotenv://:key_7890@dotenv.org/vault/.env.vault?environment=prod"
+  const keys = _dotenvKey(options).split(',');
+  const length = keys.length;
+
+  let decrypted;
+  for (let i = 0; i < length; i++) {
+    try {
+      // Get full key
+      const key = keys[i].trim();
+
+      // Get instructions for decrypt
+      const attrs = _instructions(result, key);
+
+      // Decrypt
+      decrypted = DotenvModule.decrypt(attrs.ciphertext, attrs.key);
+
+      break
+    } catch (error) {
+      // last key
+      if (i + 1 >= length) {
+        throw error
+      }
+      // try next key
+    }
+  }
+
+  // Parse decrypted .env string
+  return DotenvModule.parse(decrypted)
+}
+
+function _log (message) {
+  console.log(`[dotenv@${version$2}][INFO] ${message}`);
+}
+
+function _warn (message) {
+  console.log(`[dotenv@${version$2}][WARN] ${message}`);
+}
+
+function _debug (message) {
+  console.log(`[dotenv@${version$2}][DEBUG] ${message}`);
+}
+
+function _dotenvKey (options) {
+  // prioritize developer directly setting options.DOTENV_KEY
+  if (options && options.DOTENV_KEY && options.DOTENV_KEY.length > 0) {
+    return options.DOTENV_KEY
+  }
+
+  // secondary infra already contains a DOTENV_KEY environment variable
+  if (process.env.DOTENV_KEY && process.env.DOTENV_KEY.length > 0) {
+    return process.env.DOTENV_KEY
+  }
+
+  // fallback to empty string
+  return ''
+}
+
+function _instructions (result, dotenvKey) {
+  // Parse DOTENV_KEY. Format is a URI
+  let uri;
+  try {
+    uri = new URL(dotenvKey);
+  } catch (error) {
+    if (error.code === 'ERR_INVALID_URL') {
+      throw new Error('INVALID_DOTENV_KEY: Wrong format. Must be in valid uri format like dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development')
+    }
+
+    throw error
+  }
+
+  // Get decrypt key
+  const key = uri.password;
+  if (!key) {
+    throw new Error('INVALID_DOTENV_KEY: Missing key part')
+  }
+
+  // Get environment
+  const environment = uri.searchParams.get('environment');
+  if (!environment) {
+    throw new Error('INVALID_DOTENV_KEY: Missing environment part')
+  }
+
+  // Get ciphertext payload
+  const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`;
+  const ciphertext = result.parsed[environmentKey]; // DOTENV_VAULT_PRODUCTION
+  if (!ciphertext) {
+    throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file.`)
+  }
+
+  return { ciphertext, key }
+}
+
+function _vaultPath (options) {
+  let dotenvPath = path$8.resolve(process.cwd(), '.env');
+
+  if (options && options.path && options.path.length > 0) {
+    dotenvPath = options.path;
+  }
+
+  // Locate .env.vault
+  return dotenvPath.endsWith('.vault') ? dotenvPath : `${dotenvPath}.vault`
+}
+
+function _resolveHome (envPath) {
+  return envPath[0] === '~' ? path$8.join(os$3.homedir(), envPath.slice(1)) : envPath
+}
+
+function _configVault (options) {
+  _log('Loading env from encrypted .env.vault');
+
+  const parsed = DotenvModule._parseVault(options);
+
+  let processEnv = process.env;
+  if (options && options.processEnv != null) {
+    processEnv = options.processEnv;
+  }
+
+  DotenvModule.populate(processEnv, parsed, options);
+
+  return { parsed }
+}
+
+function configDotenv (options) {
+  let dotenvPath = path$8.resolve(process.cwd(), '.env');
+  let encoding = 'utf8';
+  const debug = Boolean(options && options.debug);
+
+  if (options) {
+    if (options.path != null) {
+      dotenvPath = _resolveHome(options.path);
+    }
+    if (options.encoding != null) {
+      encoding = options.encoding;
+    }
+  }
+
+  try {
+    // Specifying an encoding returns a string instead of a buffer
+    const parsed = DotenvModule.parse(fs$b.readFileSync(dotenvPath, { encoding }));
+
+    let processEnv = process.env;
+    if (options && options.processEnv != null) {
+      processEnv = options.processEnv;
+    }
+
+    DotenvModule.populate(processEnv, parsed, options);
+
+    return { parsed }
+  } catch (e) {
+    if (debug) {
+      _debug(`Failed to load ${dotenvPath} ${e.message}`);
+    }
+
+    return { error: e }
+  }
+}
+
+// Populates process.env from .env file
+function config (options) {
+  const vaultPath = _vaultPath(options);
+
+  // fallback to original dotenv if DOTENV_KEY is not set
+  if (_dotenvKey(options).length === 0) {
+    return DotenvModule.configDotenv(options)
+  }
+
+  // dotenvKey exists but .env.vault file does not exist
+  if (!fs$b.existsSync(vaultPath)) {
+    _warn(`You set DOTENV_KEY but you are missing a .env.vault file at ${vaultPath}. Did you forget to build it?`);
+
+    return DotenvModule.configDotenv(options)
+  }
+
+  return DotenvModule._configVault(options)
+}
+
+function decrypt (encrypted, keyStr) {
+  const key = Buffer.from(keyStr.slice(-64), 'hex');
+  let ciphertext = Buffer.from(encrypted, 'base64');
+
+  const nonce = ciphertext.slice(0, 12);
+  const authTag = ciphertext.slice(-16);
+  ciphertext = ciphertext.slice(12, -16);
+
+  try {
+    const aesgcm = crypto$6.createDecipheriv('aes-256-gcm', key, nonce);
+    aesgcm.setAuthTag(authTag);
+    return `${aesgcm.update(ciphertext)}${aesgcm.final()}`
+  } catch (error) {
+    const isRange = error instanceof RangeError;
+    const invalidKeyLength = error.message === 'Invalid key length';
+    const decryptionFailed = error.message === 'Unsupported state or unable to authenticate data';
+
+    if (isRange || invalidKeyLength) {
+      const msg = 'INVALID_DOTENV_KEY: It must be 64 characters long (or more)';
+      throw new Error(msg)
+    } else if (decryptionFailed) {
+      const msg = 'DECRYPTION_FAILED: Please check your DOTENV_KEY';
+      throw new Error(msg)
+    } else {
+      console.error('Error: ', error.code);
+      console.error('Error: ', error.message);
+      throw error
+    }
+  }
+}
+
+// Populate process.env with parsed values
+function populate$2 (processEnv, parsed, options = {}) {
+  const debug = Boolean(options && options.debug);
+  const override = Boolean(options && options.override);
+
+  if (typeof parsed !== 'object') {
+    throw new Error('OBJECT_REQUIRED: Please check the processEnv argument being passed to populate')
+  }
+
+  // Set process.env
+  for (const key of Object.keys(parsed)) {
+    if (Object.prototype.hasOwnProperty.call(processEnv, key)) {
+      if (override === true) {
+        processEnv[key] = parsed[key];
+      }
+
+      if (debug) {
+        if (override === true) {
+          _debug(`"${key}" is already defined and WAS overwritten`);
+        } else {
+          _debug(`"${key}" is already defined and was NOT overwritten`);
+        }
+      }
+    } else {
+      processEnv[key] = parsed[key];
+    }
+  }
+}
+
+const DotenvModule = {
+  configDotenv,
+  _configVault,
+  _parseVault,
+  config,
+  decrypt,
+  parse: parse$6,
+  populate: populate$2
+};
+
+main$3.exports.configDotenv = DotenvModule.configDotenv;
+main$3.exports._configVault = DotenvModule._configVault;
+main$3.exports._parseVault = DotenvModule._parseVault;
+main$3.exports.config = DotenvModule.config;
+main$3.exports.decrypt = DotenvModule.decrypt;
+main$3.exports.parse = DotenvModule.parse;
+main$3.exports.populate = DotenvModule.populate;
+
+main$3.exports = DotenvModule;
+
+var mainExports = main$3.exports;
+
+// ../config.js accepts options via environment variables
+const options$1 = {};
+
+if (process.env.DOTENV_CONFIG_ENCODING != null) {
+  options$1.encoding = process.env.DOTENV_CONFIG_ENCODING;
+}
+
+if (process.env.DOTENV_CONFIG_PATH != null) {
+  options$1.path = process.env.DOTENV_CONFIG_PATH;
+}
+
+if (process.env.DOTENV_CONFIG_DEBUG != null) {
+  options$1.debug = process.env.DOTENV_CONFIG_DEBUG;
+}
+
+if (process.env.DOTENV_CONFIG_OVERRIDE != null) {
+  options$1.override = process.env.DOTENV_CONFIG_OVERRIDE;
+}
+
+if (process.env.DOTENV_CONFIG_DOTENV_KEY != null) {
+  options$1.DOTENV_KEY = process.env.DOTENV_CONFIG_DOTENV_KEY;
+}
+
+var envOptions = options$1;
+
+const re = /^dotenv_config_(encoding|path|debug|override|DOTENV_KEY)=(.+)$/;
+
+var cliOptions = function optionMatcher (args) {
+  return args.reduce(function (acc, cur) {
+    const matches = cur.match(re);
+    if (matches) {
+      acc[matches[1]] = matches[2];
+    }
+    return acc
+  }, {})
+};
+
+(function () {
+  mainExports.config(
+    Object.assign(
+      {},
+      envOptions,
+      cliOptions(process.argv)
+    )
+  );
+})();
 
 var github = {};
 
@@ -221,7 +667,7 @@ var tunnel$2 = {};
 var tls$2 = require$$1$3;
 var http$5 = require$$2$3;
 var https$4 = require$$1$4;
-var events$3 = require$$4$2;
+var events$3 = require$$4$3;
 var util$s = require$$1$2;
 
 
@@ -1195,7 +1641,7 @@ let events$2;
 function addAbortListener$1 (signal, listener) {
   if (typeof Symbol.dispose === 'symbol') {
     if (!events$2) {
-      events$2 = require$$4$2;
+      events$2 = require$$4$3;
     }
     if (typeof events$2.addAbortListener === 'function' && 'aborted' in signal) {
       return events$2.addAbortListener(signal, listener)
@@ -7272,7 +7718,7 @@ function processHeader (request, key, val, skipAppend = false) {
 
 var request$3 = Request$2;
 
-const EventEmitter = require$$4$2;
+const EventEmitter = require$$4$3;
 
 let Dispatcher$3 = class Dispatcher extends EventEmitter {
   dispatch () {
@@ -7980,7 +8426,7 @@ const util$n = util$r;
 const { kBodyUsed } = symbols$4;
 const assert$7 = require$$0$2;
 const { InvalidArgumentError: InvalidArgumentError$h } = errors$1;
-const EE = require$$4$2;
+const EE = require$$4$3;
 
 const redirectableStatusCodes = [300, 301, 302, 303, 307, 308];
 
@@ -11730,7 +12176,7 @@ const {
 } = errors$1;
 const util$h = util$r;
 const { getResolveErrorBodyCallback: getResolveErrorBodyCallback$1 } = util$i;
-const { AsyncResource: AsyncResource$4 } = require$$4$3;
+const { AsyncResource: AsyncResource$4 } = require$$4$4;
 const { addSignal: addSignal$4, removeSignal: removeSignal$4 } = abortSignal;
 
 class RequestHandler extends AsyncResource$4 {
@@ -11909,7 +12355,7 @@ const {
 } = errors$1;
 const util$g = util$r;
 const { getResolveErrorBodyCallback } = util$i;
-const { AsyncResource: AsyncResource$3 } = require$$4$3;
+const { AsyncResource: AsyncResource$3 } = require$$4$4;
 const { addSignal: addSignal$3, removeSignal: removeSignal$3 } = abortSignal;
 
 class StreamHandler extends AsyncResource$3 {
@@ -12131,7 +12577,7 @@ const {
   RequestAbortedError: RequestAbortedError$3
 } = errors$1;
 const util$f = util$r;
-const { AsyncResource: AsyncResource$2 } = require$$4$3;
+const { AsyncResource: AsyncResource$2 } = require$$4$4;
 const { addSignal: addSignal$2, removeSignal: removeSignal$2 } = abortSignal;
 const assert$3 = require$$0$2;
 
@@ -12369,7 +12815,7 @@ function pipeline (opts, handler) {
 var apiPipeline = pipeline;
 
 const { InvalidArgumentError: InvalidArgumentError$8, RequestAbortedError: RequestAbortedError$2, SocketError: SocketError$1 } = errors$1;
-const { AsyncResource: AsyncResource$1 } = require$$4$3;
+const { AsyncResource: AsyncResource$1 } = require$$4$4;
 const util$e = util$r;
 const { addSignal: addSignal$1, removeSignal: removeSignal$1 } = abortSignal;
 const assert$2 = require$$0$2;
@@ -12472,7 +12918,7 @@ function upgrade (opts, callback) {
 
 var apiUpgrade = upgrade;
 
-const { AsyncResource } = require$$4$3;
+const { AsyncResource } = require$$4$4;
 const { InvalidArgumentError: InvalidArgumentError$7, RequestAbortedError: RequestAbortedError$1, SocketError } = errors$1;
 const util$d = util$r;
 const { addSignal, removeSignal } = abortSignal;
@@ -14950,7 +15396,7 @@ function requireRequest () {
 	const { URLSerializer } = requireDataURL();
 	const { kHeadersList } = symbols$4;
 	const assert = require$$0$2;
-	const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = require$$4$2;
+	const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = require$$4$3;
 
 	let TransformStream = globalThis.TransformStream;
 
@@ -15925,7 +16371,7 @@ function requireFetch () {
 	  DOMException
 	} = requireConstants$3();
 	const { kHeadersList } = symbols$4;
-	const EE = require$$4$2;
+	const EE = require$$4$3;
 	const { Readable, pipeline } = Stream$6;
 	const { addAbortListener, isErrored, isReadable, nodeMajor, nodeMinor } = util$r;
 	const { dataURLProcessor, serializeAMimeType } = requireDataURL();
@@ -110045,7 +110491,7 @@ function requirePathUtils () {
 	};
 	Object.defineProperty(pathUtils, "__esModule", { value: true });
 	pathUtils.toPlatformPath = pathUtils.toWin32Path = pathUtils.toPosixPath = void 0;
-	const path = __importStar(path$8);
+	const path = __importStar(path$9);
 	/**
 	 * toPosixPath converts the given path to the posix form. On Windows, \\ will be
 	 * replaced with /.
@@ -110124,7 +110570,7 @@ function requireCore () {
 		const file_command_1 = fileCommand;
 		const utils_1 = utils$3;
 		const os = __importStar(require$$1$1);
-		const path = __importStar(path$8);
+		const path = __importStar(path$9);
 		const oidc_utils_1 = requireOidcUtils();
 		/**
 		 * The code to exit an action
@@ -110596,7 +111042,7 @@ const isWindows$1 = process.platform === 'win32' ||
     process.env.OSTYPE === 'cygwin' ||
     process.env.OSTYPE === 'msys';
 
-const path$7 = path$8;
+const path$7 = path$9;
 const COLON = isWindows$1 ? ';' : ':';
 const isexe = isexe_1;
 
@@ -110737,7 +111183,7 @@ pathKey$2.exports.default = pathKey$1;
 
 var pathKeyExports = pathKey$2.exports;
 
-const path$6 = path$8;
+const path$6 = path$9;
 const which = which_1;
 const getPathKey = pathKeyExports;
 
@@ -110877,7 +111323,7 @@ function readShebang$1(command) {
 
 var readShebang_1 = readShebang$1;
 
-const path$5 = path$8;
+const path$5 = path$9;
 const resolveCommand = resolveCommand_1;
 const escape = _escape;
 const readShebang = readShebang_1;
@@ -111103,19 +111549,19 @@ function npmRunPath(options = {}) {
 
 	let previous;
 	const cwdString = cwd instanceof URL ? url$1.fileURLToPath(cwd) : cwd;
-	let cwdPath = path$9.resolve(cwdString);
+	let cwdPath = path$a.resolve(cwdString);
 	const result = [];
 
 	while (previous !== cwdPath) {
-		result.push(path$9.join(cwdPath, 'node_modules/.bin'));
+		result.push(path$a.join(cwdPath, 'node_modules/.bin'));
 		previous = cwdPath;
-		cwdPath = path$9.resolve(cwdPath, '..');
+		cwdPath = path$a.resolve(cwdPath, '..');
 	}
 
 	// Ensure the running `node` binary is used.
-	result.push(path$9.resolve(cwdString, execPath, '..'));
+	result.push(path$a.resolve(cwdString, execPath, '..'));
 
-	return [...result, path_].join(path$9.delimiter);
+	return [...result, path_].join(path$a.delimiter);
 }
 
 function npmRunPathEnv({env = process$2.env, ...options} = {}) {
@@ -111548,7 +111994,7 @@ standard
 })=>{
 const{
 signals:{[name]:constantSignal}
-}=os$3.constants;
+}=os$4.constants;
 const supported=constantSignal!==undefined;
 const number=supported?constantSignal:defaultNumber;
 return {name,number,description,supported,action,forced,standard}
@@ -111607,7 +112053,7 @@ standard
 
 
 const findSignalByNumber=(number,signals)=>{
-const signal=signals.find(({name})=>os$3.constants.signals[name]===number);
+const signal=signals.find(({name})=>os$4.constants.signals[name]===number);
 
 if(signal!==undefined){
 return signal
@@ -112076,7 +112522,7 @@ const setKillTimeout = (kill, signal, options, killResult) => {
 
 const shouldForceKill = (signal, {forceKillAfterTimeout}, killResult) => isSigterm(signal) && forceKillAfterTimeout !== false && killResult;
 
-const isSigterm = signal => signal === os$3.constants.signals.SIGTERM
+const isSigterm = signal => signal === os$4.constants.signals.SIGTERM
 		|| (typeof signal === 'string' && signal.toUpperCase() === 'SIGTERM');
 
 const getForceKillAfterTimeout = ({forceKillAfterTimeout = true}) => {
@@ -112809,7 +113255,7 @@ const handleArguments = (file, args, options = {}) => {
 
 	options.stdio = normalizeStdio(options);
 
-	if (process$2.platform === 'win32' && path$9.basename(file, '.exe') === 'cmd') {
+	if (process$2.platform === 'win32' && path$a.basename(file, '.exe') === 'cmd') {
 		// #116
 		args.unshift('/q');
 	}
@@ -124892,7 +125338,7 @@ var mimeDb = require$$0;
 	 */
 
 	var db = mimeDb;
-	var extname = path$8.extname;
+	var extname = path$9.extname;
 
 	/**
 	 * Module variables.
@@ -125465,7 +125911,7 @@ var populate$1 = function(dst, src) {
 
 var CombinedStream = combined_stream;
 var util$5 = require$$1$2;
-var path$4 = path$8;
+var path$4 = path$9;
 var http$2 = require$$2$3;
 var https$2 = require$$1$4;
 var parseUrl$1 = Url.parse;
@@ -129725,7 +130171,7 @@ var httpAdapter = isHttpAdapterSupported && function httpAdapter(config) {
     }
 
     // temporary internal emitter until the AxiosRequest class will be implemented
-    const emitter = new require$$4$2();
+    const emitter = new require$$4$3();
 
     const onFinished = () => {
       if (config.cancelToken) {
@@ -143585,7 +144031,7 @@ var crypto$3 = {};
 // limitations under the License.
 Object.defineProperty(crypto$3, "__esModule", { value: true });
 crypto$3.NodeCrypto = void 0;
-const crypto$2 = require$$0$b;
+const crypto$2 = require$$3$1;
 class NodeCrypto {
     async sha256DigestBase64(str) {
         return crypto$2.createHash('sha256').update(str).digest('base64');
@@ -144390,7 +144836,7 @@ _LRUCache_cache = new WeakMap(), _LRUCache_instances = new WeakSet(), _LRUCache_
 	// limitations under the License.
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.AuthClient = exports.DEFAULT_EAGER_REFRESH_THRESHOLD_MILLIS = exports.DEFAULT_UNIVERSE = void 0;
-	const events_1 = require$$4$2;
+	const events_1 = require$$4$3;
 	const transporters_1 = transporters;
 	const util_1 = util$4;
 	/**
@@ -145647,7 +146093,7 @@ bufferEq.restore = function() {
 
 var bufferEqual = bufferEqualConstantTime;
 var Buffer$4 = safeBufferExports.Buffer;
-var crypto$1 = require$$0$b;
+var crypto$1 = require$$3$1;
 var formatEcdsa = ecdsaSigFormatter;
 var util$2 = require$$1$2;
 
@@ -146145,7 +146591,7 @@ src.GoogleToken = void 0;
 const fs$7 = require$$0$1;
 const gaxios_1$3 = src$1;
 const jws$1 = jws$2;
-const path$3 = path$8;
+const path$3 = path$9;
 const util_1$4 = require$$1$2;
 const readFile$1 = fs$7.readFile
     ? (0, util_1$4.promisify)(fs$7.readFile)
@@ -149341,7 +149787,7 @@ const child_process_1 = require$$0$a;
 const fs$5 = require$$0$1;
 const gcpMetadata = src$2;
 const os = require$$1$1;
-const path$2 = path$8;
+const path$2 = path$9;
 const crypto_1$1 = requireCrypto();
 const transporters_1 = transporters;
 const computeclient_1 = computeclient;
@@ -150575,7 +151021,7 @@ Object.defineProperty(uploadSpecification, "__esModule", { value: true });
 uploadSpecification.getUploadSpecification = void 0;
 const fs$4 = __importStar$6(require$$0$1);
 const core_1$2 = requireCore();
-const path_1$1 = path$8;
+const path_1$1 = path$9;
 const path_and_artifact_name_validation_1$1 = pathAndArtifactNameValidation;
 /**
  * Creates a specification that describes how each file that is part of the artifact will be uploaded
@@ -150686,7 +151132,7 @@ function requireOld () {
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var pathModule = path$8;
+	var pathModule = path$9;
 	var isWindows = process.platform === 'win32';
 	var fs = require$$0$1;
 
@@ -152404,7 +152850,7 @@ function requireCommon () {
 	}
 
 	var fs = require$$0$1;
-	var path = path$8;
+	var path = path$9;
 	var minimatch = requireMinimatch();
 	var isAbsolute = requirePathIsAbsolute();
 	var Minimatch = minimatch.Minimatch;
@@ -152645,7 +153091,7 @@ function requireSync () {
 	var minimatch = requireMinimatch();
 	minimatch.Minimatch;
 	requireGlob().Glob;
-	var path = path$8;
+	var path = path$9;
 	var assert = require$$0$2;
 	var isAbsolute = requirePathIsAbsolute();
 	var common = requireCommon();
@@ -153237,8 +153683,8 @@ function requireGlob () {
 	var minimatch = requireMinimatch();
 	minimatch.Minimatch;
 	var inherits = requireInherits();
-	var EE = require$$4$2.EventEmitter;
-	var path = path$8;
+	var EE = require$$4$3.EventEmitter;
+	var path = path$9;
 	var assert = require$$0$2;
 	var isAbsolute = requirePathIsAbsolute();
 	var globSync = requireSync();
@@ -153981,7 +154427,7 @@ function requireGlob () {
 }
 
 const assert = require$$0$2;
-const path$1 = path$8;
+const path$1 = path$9;
 const fs$3 = require$$0$1;
 let glob = undefined;
 try {
@@ -154355,8 +154801,8 @@ rimraf.sync = rimrafSync;
 	 */
 	const fs = require$$0$1;
 	const os = require$$1$1;
-	const path = path$8;
-	const crypto = require$$0$b;
+	const path = path$9;
+	const crypto = require$$3$1;
 	const _c = { fs: fs.constants, os: os.constants };
 	const rimraf = rimraf_1;
 
@@ -155578,7 +156024,7 @@ var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || func
 };
 Object.defineProperty(utils, "__esModule", { value: true });
 utils.digestForStream = utils.sleep = utils.getProperRetention = utils.rmFile = utils.getFileSize = utils.createEmptyFilesForArtifact = utils.createDirectoriesForArtifact = utils.displayHttpDiagnostics = utils.getArtifactUrl = utils.createHttpClient = utils.getUploadHeaders = utils.getDownloadHeaders = utils.getContentRange = utils.tryGetRetryAfterValueTimeInMilliseconds = utils.isThrottledStatusCode = utils.isRetryableStatusCode = utils.isForbiddenStatusCode = utils.isSuccessStatusCode = utils.getApiVersion = utils.parseEnvNumber = utils.getExponentialRetryTimeInMilliseconds = void 0;
-const crypto_1 = __importDefault(require$$0$b);
+const crypto_1 = __importDefault(require$$3$1);
 const fs_1 = require$$0$1;
 const core_1$1 = requireCore();
 const http_client_1$1 = lib$2;
@@ -156920,7 +157366,7 @@ var __importStar$1 = (commonjsGlobal && commonjsGlobal.__importStar) || function
 };
 Object.defineProperty(downloadSpecification, "__esModule", { value: true });
 downloadSpecification.getDownloadSpecification = void 0;
-const path = __importStar$1(path$8);
+const path = __importStar$1(path$9);
 /**
  * Creates a specification for a set of files that will be downloaded
  * @param artifactName the name of the artifact
@@ -157014,7 +157460,7 @@ const path_and_artifact_name_validation_1 = pathAndArtifactNameValidation;
 const download_http_client_1 = downloadHttpClient;
 const download_specification_1 = downloadSpecification;
 const config_variables_1 = configVariables;
-const path_1 = path$8;
+const path_1 = path$9;
 class DefaultArtifactClient {
     /**
      * Constructs a DefaultArtifactClient
@@ -157169,7 +157615,7 @@ let branch_to = "release_candidate_v6.4";
 let branch_From = "decouple_mock_api";
 const artifactClient = artifactClient$2.create();
 
-path$8.resolve();
+path$9.resolve();
 
 let treeMap = {};
 
@@ -157190,10 +157636,10 @@ function getReactNativeBin() {
   const localBin = "./node_modules/.bin/react-native"; // ! This needs to be changes
   if (require$$0$1.existsSync(localBin)) return localBin;
   try {
-    const reactNativeDir = path$8.dirname(
+    const reactNativeDir = path$9.dirname(
       require.resolve("react-native/package.json") // ! this needs to be changed
     );
-    return path$8.join(reactNativeDir, "./cli.js");
+    return path$9.join(reactNativeDir, "./cli.js");
   } catch (e) {
     console.error(
       chalk.red.bold(
@@ -157346,7 +157792,7 @@ const commentDetails = async () => {
 
   console.log(file_exclusions);
 
-  const result = JSON.parse(require$$0$1.readFileSync(path$8.resolve('res.json')));
+  const result = JSON.parse(require$$0$1.readFileSync(path$9.resolve('res.json')));
 
   const files = result.files;
 
@@ -157402,17 +157848,17 @@ const commentDetails = async () => {
 };
 
 const branchBundler = async (branch_name) => {
-  if (require$$0$1.existsSync(path$8.resolve(folder_dir)))
-    require$$0$1.rmSync(path$8.resolve(folder_dir), {
+  if (require$$0$1.existsSync(path$9.resolve(folder_dir)))
+    require$$0$1.rmSync(path$9.resolve(folder_dir), {
       recursive: true,
     });
 
-  require$$0$1.mkdirSync(path$8.resolve(folder_dir));
+  require$$0$1.mkdirSync(path$9.resolve(folder_dir));
 
   const fileDetails = {
-    bundle: path$8.resolve(folder_dir, `${branch_name}.bundle`),
-    source_map: path$8.resolve(folder_dir, `${branch_name}.map`),
-    filename: path$8.resolve(folder_dir, `${branch_name}.json`)
+    bundle: path$9.resolve(folder_dir, `${branch_name}.bundle`),
+    source_map: path$9.resolve(folder_dir, `${branch_name}.map`),
+    filename: path$9.resolve(folder_dir, `${branch_name}.json`)
   };
 
 
@@ -157455,22 +157901,22 @@ const analyzeBundler = async ({
   branch_to = to;
   branch_From = from;
 
-  const p = path$8.resolve();
+  const p = path$9.resolve();
 
   await artifactClient.downloadAllArtifacts(p);
 
   
 
   const branch_From_map = {
-    bundle: path$8.resolve(from, folder_dir,`${branch_From}.bundle`),
-    source_map: path$8.resolve(from, folder_dir,`${branch_From}.map`),
-    filename: path$8.resolve(from, folder_dir,`${branch_From}.json`)
+    bundle: path$9.resolve(from, folder_dir,`${branch_From}.bundle`),
+    source_map: path$9.resolve(from, folder_dir,`${branch_From}.map`),
+    filename: path$9.resolve(from, folder_dir,`${branch_From}.json`)
   };
 
   const branch_To_map = {
-    bundle: path$8.resolve( to, folder_dir,`${branch_to}.bundle`),
-    source_map: path$8.resolve( to, folder_dir,`${branch_to}.map`),
-    filename: path$8.resolve(to, folder_dir,`${branch_to}.json`)
+    bundle: path$9.resolve( to, folder_dir,`${branch_to}.bundle`),
+    source_map: path$9.resolve( to, folder_dir,`${branch_to}.map`),
+    filename: path$9.resolve(to, folder_dir,`${branch_to}.json`)
   };
 
   treeMap[branch_From] = JSON.parse(require$$0$1.readFileSync(branch_From_map.filename, 'utf8'));
@@ -157482,12 +157928,12 @@ const analyzeBundler = async ({
   const res = treeAnalyzer.analyze();
 
   require$$0$1.writeFileSync(
-      path$8.resolve('res.json'),
+      path$9.resolve('res.json'),
       JSON.stringify(res)
   );
 
   const files = [
-    path$8.resolve('res.json')
+    path$9.resolve('res.json')
   ];
   const rootDirectory = '.'; // Also possible to use __dirname
   const options = {
