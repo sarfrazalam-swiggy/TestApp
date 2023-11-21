@@ -157827,7 +157827,7 @@ const commentDetails = async () => {
   ];
   console.log(core$5.getInput("CLIENT_EMAIL"), core$5.getInput("PRIVATE_KEY"));
 
-  const spreadSheet = createReport("Bundle Changes - Code Review");
+  const spreadSheet = await createReport("Bundle Changes - Code Review");
 
   body.push(`You can get a list of all the file changes at https://docs.google.com/spreadsheets/d/${spreadSheet}`);
 
