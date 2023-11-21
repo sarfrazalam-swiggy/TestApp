@@ -15,6 +15,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: set environment variables
+        uses: allenevans/set-env@v3.0.0
+        with:
+          CLIENT_EMAIL: ${{ env.CLIENT_EMAIL }}
+          PRIVATE_KEY: ${{ env.PRIVATE_KEY }}
       - run: npm install -g yarn
       - run: npm install -g source-map-explorer
       - uses: actions/checkout@v2
@@ -37,8 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           TYPE: BRANCH
           BRANCH_NAME: ${{ github.base_ref }}
-          EXCLUDE: |
-            node_modules
             
           
       - uses: ./
@@ -47,3 +50,5 @@ jobs:
           TYPE: ANALYZE
           BRANCH_NAME: ${{ github.head_ref }}
           BRANCH_TO: ${{ github.base_ref }}
+          EXCLUDE: |
+            node_modules
