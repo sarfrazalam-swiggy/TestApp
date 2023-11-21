@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: 18
         env:
-          CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
+          PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
       - run: npm install -g yarn
       - run: npm install -g source-map-explorer
       - uses: actions/checkout@v2
@@ -50,5 +50,5 @@ jobs:
           BRANCH_TO: ${{ github.base_ref }}
           EXCLUDE: |
             node_modules
-          CLIENT_EMAIL: ${{ env.CLIENT_EMAIL }}
-          PRIVATE_KEY: ${{ env.PRIVATE_KEY }}
+          CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
+          PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
